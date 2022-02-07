@@ -1,6 +1,13 @@
+:root{
+    --primary-color: #4F88EF; 
+}
+
 body {
-    background: #4F88EF;
     color: #fff;
+    margin: 0;
+    padding: 0;
+    background: var(--primary-color);
+
 }
 
 header {
@@ -8,7 +15,8 @@ header {
     justify-content: space-between;
     font-family: Bello;
     font-size: 26px;
-    margin: 20px 30px;
+    padding: 20px 30px;
+    margin: 0;
 }
 
 ul {
@@ -21,4 +29,27 @@ ul {
 
 li {
     padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    background: #1166A5;
+    padding: 3px 10px;
+}
+
+.nav__link {
+ height: 100vh;
+}
+
+.hide {
+    display: none;
+}
+
+.main {
+    background: #fff;
+    height: 100vh;
 }
