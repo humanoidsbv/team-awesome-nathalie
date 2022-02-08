@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/humanoidsbv/team-awesome-nathalie/issues"
   },
-  "homepage": "https://github.com/humanoidsbv/team-awesome-nathalie#readme"
+  "homepage": "https://github.com/humanoidsbv/team-awesome-nathalie#readme",
+  "devDependencies": {
+    "babel-plugin-inline-react-svg": "^2.0.1"
+  }
 }
