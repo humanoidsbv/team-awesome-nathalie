@@ -80,3 +80,6 @@ a:hover {
     height: 100%;
 }
 
+.nav__btn--closed {
+    background: url(Close.svg) no-repeat center;
+  }
