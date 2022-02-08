@@ -7,13 +7,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-
 body {
     color: #fff;
-    margin: 0;
-    padding: 0;
-    /* background: var(--primary-color); */
 }
 
 header {
@@ -23,8 +18,8 @@ header {
     font-family: Bello;
     font-size: 26px;
     padding: 20px 30px;
-    margin: 0;
     width: 100%;
+    height: 70px;
     top: 0;
     background: var(--primary-color);
 }
@@ -39,10 +34,8 @@ nav {
 ul {
     font-family: Proxima Nova;
     text-align: center;
-    padding: 0;
     list-style: none;
     font-size: 24px;
-    margin: 0;
     height: 100%;
     padding-top: 100px;
     background: var(--primary-color);
@@ -82,4 +75,77 @@ a:hover {
 
 .nav__btn--closed {
     background: url(Close.svg) no-repeat center;
+  }
+
+  .nav__link--desktop {
+    display: none;
+}
+
+.nav__user-navigation{
+    display: none;
+}
+
+
+  @media screen and (min-width: 768px) {  
+    header {
+        position: static;
+    }
+
+    .header__navigation {
+        display: none;
+    }
+
+    ul {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    li {
+        display: inline;
+    }
+
+    .hide {
+        display: block;
+    }
+
+    .nav__link {
+        display: none;
+    }
+
+    .nav__link--desktop{
+        display: block;
+    }
+
+    .nav__user-navigation {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav__button {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 2px, 2px, 2px, 15px;
+        border-radius: 20px;
+        border: 3px solid #fff;
+    }
+    
+    .nav__humanoids--logo {
+        width: 80px;
+        height: 10px;
+        margin: 15px;
+    }
+
+    .nav__picture {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+
+    .nav__arrow {
+        filter: brightness(0) invert(1);
+        height: 7px;
+        margin: 15px;
+        width: 12px;
+    }
   }
