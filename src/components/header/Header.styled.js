@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
-    background: #4F88EF; 
+    background-color: #4F88EF; 
   color: #fff;
   position: fixed;
   font-family: Bello;
@@ -19,4 +19,9 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
+
+    button {
+      border: none;
+      background-color: #4F88EF;
+    }
 `;

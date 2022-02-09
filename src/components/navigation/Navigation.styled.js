@@ -6,6 +6,11 @@ export const Container = styled.nav`
   margin: 50px;
   font-family: Proxima Nova;
   text-align: center;
+
+  @media screen and (min-width: 768px){
+    margin: 10px; 
+    padding: 20px 28px;
+ }
 `;
 
 export const Menu = styled.ul`
@@ -13,6 +18,7 @@ export const Menu = styled.ul`
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
     
     li {
         padding: 20px;
@@ -26,5 +32,12 @@ export const Menu = styled.ul`
 
     a:hover {
         background-color: #1166A5;
+    }
+
+    @media screen and (min-width: 768px){
+        font-size: 14px;
+        li {
+        display: inline;
+        }
     }
 `;
