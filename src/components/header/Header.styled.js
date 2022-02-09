@@ -27,7 +27,6 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     padding: 20px 30px;
 
-
     button {
       background-color: #4F88EF;
       border: none;
@@ -45,18 +44,18 @@ export const UserContainer = styled.div`
     display: none;
 
     @media screen and (min-width: 945px) {
-      display: flex;
       align-items: center;
+      display: flex;
       margin-left: auto;
       margin-right: 32px;
     }
 `;
 
 export const UserButton = styled.button`
-    display: flex;
     align-items: center;
     border-radius: 20px;
     border: 1px solid #fff;
+    display: flex;
     height: 40px;
     margin-right: 10px;  
     padding: 2px 2px 2px 15px;
