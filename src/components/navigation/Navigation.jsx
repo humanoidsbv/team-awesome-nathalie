@@ -1,9 +1,10 @@
 import * as Styled from './Navigation.styled.js';
 
-export const Navigation = () => {
+export const Navigation = ({isActive}) => {
+
     return (
         <Styled.Container>
-         <Styled.Menu>
+         <Styled.Menu isActive={isActive}>
             <li><a href="#">Timesheets</a></li>
             <li><a href="#">Team members</a></li>
             <li><a href="#">Projects</a></li>

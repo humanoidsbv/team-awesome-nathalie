@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Navigation } from '../navigation/';
 import * as Styled from './Header.styled.js';
-import Hamburger from "../../../assets/icons/hamburger.svg";
-import Close from "../../../assets/icons/close.svg";
-import ArrowDown from "../../../assets/icons/arrow_down.svg"
-import Logo from "../../../assets/img/humanoids_logo.svg";
+import Hamburger from "../../../public/icons/hamburger.svg";
+import Close from "../../../public/icons/close.svg";
+import Logo from "../../../public/img/humanoids-logo.svg";
 
 export const Header = () => {
     const [isActive, setIsActive] = useState(false);
@@ -12,19 +11,22 @@ export const Header = () => {
     const icon = isActive ? <Close /> : <Hamburger />;
 
     return (
-        <Styled.Header>
-            <Styled.Wrapper>
-              <a href="#">team awesome</a>
-             <button onClick={handleClick}>
+      <Styled.Header>
+          <Styled.Wrapper>
+            <a href="#">team awesome</a>
+            <button onClick={handleClick}>
              {icon}
-             </button>
+            </button>
           </Styled.Wrapper>
-          {isActive && (
-            <Navigation />)}
-            <Styled.NavDesktop>
-            <Styled.NavButtonDesktop><Logo /></Styled.NavButtonDesktop>
-            <ArrowDown />
-            </Styled.NavDesktop>
+          <Navigation isActive={isActive}/>
+
+          <Styled.UserContainer>
+            <Styled.UserButton>
+              <Logo />
+              <img src="/img/amijs.jpg" />
+            </Styled.UserButton>
+            <Styled.ArrowDown/>
+          </Styled.UserContainer>
       </Styled.Header>
     );
   }

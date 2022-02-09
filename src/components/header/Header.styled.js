@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import ArrowDownIcon from "../../../public/icons/arrow-down.svg"
 
 export const Header = styled.header`
-    background-color: #4F88EF; 
+  background-color: #4F88EF; 
   color: #fff;
   font-family: Bello;
   font-size: 26px;
@@ -13,9 +14,10 @@ export const Header = styled.header`
     text-decoration: none;
   }
 
-  @media screen and (min-width: 768px) {
-    display: flex;
+  @media screen and (min-width: 945px) {
     align-items: center;
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -25,30 +27,47 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     padding: 20px 30px;
 
+
     button {
       background-color: #4F88EF;
       border: none;
     }
 
-    @media screen and (min-width: 768px) {      
+    @media screen and (min-width: 945px) {      
+      justify-content: start;
       button {
         display: none;
       }
     }
 `;
 
-export const NavDesktop = styled.div`
+export const UserContainer = styled.div`
     display: none;
 
-    @media screen and (min-width: 768px) {
-      display: block;
+    @media screen and (min-width: 945px) {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 32px;
     }
 `;
 
-export const NavButtonDesktop = styled.button`
+export const UserButton = styled.button`
+    display: flex;
+    align-items: center;
     border-radius: 20px;
     border: 1px solid #fff;
-    padding: 15px;
     height: 40px;
     margin-right: 10px;  
-`;
+    padding: 2px 2px 2px 15px;
+    width: 150px;
+
+    img {
+      margin-left: auto;
+      border-radius: 50%;
+    }
+    `;
+
+    export const ArrowDown = styled(ArrowDownIcon)`
+      fill: white;
+    `
