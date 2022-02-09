@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.nav`
   background: #4F88EF; 
+  font-family: Proxima Nova;
   height: fill-available;
   margin: 50px;
-  font-family: Proxima Nova;
   text-align: center;
 
   @media screen and (min-width: 768px){
@@ -14,20 +14,20 @@ export const Container = styled.nav`
 `;
 
 export const Menu = styled.ul`
+    align-items: center;
     font-size: 26px;
     list-style: none;
     margin: 0;
     padding: 0;
-    align-items: center;
     
     li {
         padding: 20px;
     }
 
     a {
-        text-decoration : none;
         color: #fff;
         text-align: center;
+        text-decoration : none;
     }
 
     a:hover {
@@ -36,6 +36,7 @@ export const Menu = styled.ul`
 
     @media screen and (min-width: 768px){
         font-size: 14px;
+        
         li {
         display: inline;
         }

@@ -3,6 +3,8 @@ import { Navigation } from '../navigation/';
 import * as Styled from './Header.styled.js';
 import Hamburger from "../../../assets/icons/hamburger.svg";
 import Close from "../../../assets/icons/close.svg";
+import ArrowDown from "../../../assets/icons/arrow_down.svg"
+import Logo from "../../../assets/img/humanoids_logo.svg";
 
 export const Header = () => {
     const [isActive, setIsActive] = useState(false);
@@ -18,7 +20,11 @@ export const Header = () => {
              </button>
           </Styled.Wrapper>
           {isActive && (
-        <Navigation />)}
+            <Navigation />)}
+            <Styled.NavDesktop>
+            <Styled.NavButtonDesktop><Logo /></Styled.NavButtonDesktop>
+            <ArrowDown />
+            </Styled.NavDesktop>
       </Styled.Header>
     );
   }
