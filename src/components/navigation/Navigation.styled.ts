@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
-  background: #4f88ef;
-  font-family: Proxima Nova;
+  background-color: ${({ theme }) => theme.backgroundPrimary};
+  font-family: ${({ theme }) => theme.fontPrimary};
 
   text-align: center;
 
