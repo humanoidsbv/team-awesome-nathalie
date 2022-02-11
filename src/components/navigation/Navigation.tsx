@@ -1,10 +1,10 @@
 import * as Styled from "./Navigation.styled";
 
-interface Props {
+interface NavigationProps {
   isActive: boolean;
 }
 
-export const Navigation = ({ isActive }: Props) => {
+export const Navigation = ({ isActive }: NavigationProps) => {
   return (
     <Styled.Container>
       <Styled.Menu isActive={isActive}>

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.nav`
   background-color: ${({ theme }) => theme.backgroundPrimary};
   font-family: ${({ theme }) => theme.fontPrimary};
-
   text-align: center;
 
   @media screen and (min-width: 945px) {
@@ -13,13 +12,13 @@ export const Container = styled.nav`
 `;
 
 export const Menu = styled.ul<{ isActive: boolean }>`
-  display: ${(props) => (props.isActive ? "block;" : "none;")};
   align-items: center;
+  display: ${(props) => (props.isActive ? "block;" : "none;")};
   font-size: 26px;
+  height: 100vh;
   list-style: none;
   margin: 0;
   padding: 0;
-  height: 100vh;
 
   li {
     padding: 20px;
