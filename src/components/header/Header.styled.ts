@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 
 export const Header = styled.header`
-  background-color: ${({ theme }) => theme.backgroundPrimary};
+  background-color: ${({ theme }) => theme.primaryColor};
   color: #fff;
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 26px;
@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
   padding: 20px 30px;
 
   button {
-    background-color: ${({ theme }) => theme.backgroundPrimary};
+    background-color: ${({ theme }) => theme.primaryColor};
     border: none;
   }
 

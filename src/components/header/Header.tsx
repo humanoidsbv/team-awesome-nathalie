@@ -8,13 +8,12 @@ import Logo from "../../../public/img/humanoids-logo.svg";
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const handleClick = () => setIsActive(!isActive);
-  const icon = isActive ? <Close /> : <Hamburger />;
 
   return (
     <Styled.Header>
       <Styled.Wrapper>
         <a href="#">team awesome</a>
-        <button onClick={handleClick}>{icon}</button>
+        <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
       </Styled.Wrapper>
       <Navigation isActive={isActive} />
 

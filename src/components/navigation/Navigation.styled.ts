@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.nav`
-  background-color: ${({ theme }) => theme.backgroundPrimary};
+  background-color: ${({ theme }) => theme.primaryColor};
   font-family: ${({ theme }) => theme.fontPrimary};
   text-align: center;
 
