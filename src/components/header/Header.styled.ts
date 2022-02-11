@@ -34,6 +34,7 @@ export const Wrapper = styled.div`
 
   @media screen and (min-width: 945px) {
     justify-content: start;
+
     button {
       display: none;
     }
@@ -62,8 +63,8 @@ export const UserButton = styled.button`
   width: 150px;
 
   img {
-    margin-left: auto;
     border-radius: 50%;
+    margin-left: auto;
   }
 `;
 
