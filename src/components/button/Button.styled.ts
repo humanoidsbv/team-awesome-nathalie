@@ -1,5 +1,9 @@
 import styled, { css } from "styled-components";
 
+interface ButtonProps {
+  style?: "primary" | "secondary";
+}
+
 export const Button = styled.button`
   align-items: center;
   background-color: ${({ theme }) => theme.secondaryColor};
@@ -13,10 +17,10 @@ export const Button = styled.button`
   padding: 13px 30px;
   width: 100%;
 
-  ${({ style }) =>
+  ${({ style }: ButtonProps) =>
     style === "secondary" &&
     css`
-      border: 10px solid gray;
-      color: green;
+      background-color: ${({ theme }) => theme.greyColor100};
+      color: ${({ theme }) => theme.greyColor900};
     `};
 `;

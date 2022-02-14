@@ -9,9 +9,9 @@ interface ButtonProps {
   style?: "primary" | "secondary";
 }
 
-export const Button = ({ icon, label, onClick }: ButtonProps) => {
+export const Button = ({ icon, label, onClick, style }: ButtonProps) => {
   return (
-    <Styled.Button {...{ onClick }}>
+    <Styled.Button {...{ onClick, style }}>
       {icon && <PlusIcon />}
       {label}
     </Styled.Button>

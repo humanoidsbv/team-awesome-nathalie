@@ -8,7 +8,7 @@ export const SubHeader = () => {
         Timesheets<Styled.EntryText>12 Entries</Styled.EntryText>
       </Styled.TimesheetText>
       <Styled.Button>
-        <Button label="New time entry" style="primary" icon={true} />
+        <Button label="New time entry" style="primary" icon />
       </Styled.Button>
     </Styled.Container>
   );
