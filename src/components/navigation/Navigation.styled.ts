@@ -1,11 +1,11 @@
-import styled, { ThemeConsumer } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 export const Container = styled.nav`
   background-color: ${({ theme }) => theme.primaryColor500};
   font-family: ${({ theme }) => theme.fontPrimary};
   text-align: center;
 
-  @media (${({ theme }) => theme.desktop}) {
+  @media (${({ theme }) => theme.tablet}) {
     margin: 0;
     padding: 0;
   }
@@ -34,7 +34,7 @@ export const Menu = styled.ul<{ isActive: boolean }>`
     background-color: ${({ theme }) => theme.primaryColor700};
   }
 
-  @media (${({ theme }) => theme.desktop}) {
+  @media (${({ theme }) => theme.tablet}) {
     display: flex;
     font-size: 14px;
     height: auto;

@@ -11,7 +11,6 @@ const Homepage = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Header />
-        <SubHeader />
       </ThemeProvider>
     </>
   );
