@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled, { ThemeConsumer } from "styled-components";
 
 export const Container = styled.nav`
-  background-color: ${({ theme }) => theme.primaryColor};
+  background-color: ${({ theme }) => theme.primaryColor500};
   font-family: ${({ theme }) => theme.fontPrimary};
   text-align: center;
 
-  @media screen and (min-width: 945px) {
+  @media (${({ theme }) => theme.desktop}) {
     margin: 0;
     padding: 0;
   }
@@ -31,10 +31,10 @@ export const Menu = styled.ul<{ isActive: boolean }>`
   }
 
   a:hover {
-    background-color: #1166a5;
+    background-color: ${({ theme }) => theme.primaryColor700};
   }
 
-  @media screen and (min-width: 945px) {
+  @media (${({ theme }) => theme.desktop}) {
     display: flex;
     font-size: 14px;
     height: auto;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 
 export const Header = styled.header`
-  background-color: ${({ theme }) => theme.primaryColor};
+  background-color: ${({ theme }) => theme.primaryColor500};
   color: #fff;
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 26px;
@@ -14,7 +14,7 @@ export const Header = styled.header`
     text-decoration: none;
   }
 
-  @media screen and (min-width: 945px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -28,11 +28,11 @@ export const Wrapper = styled.div`
   padding: 20px 30px;
 
   button {
-    background-color: ${({ theme }) => theme.primaryColor};
+    background-color: ${({ theme }) => theme.primaryColor500};
     border: none;
   }
 
-  @media screen and (min-width: 945px) {
+  @media (${({ theme }) => theme.desktop}) {
     justify-content: start;
 
     button {
@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
 export const UserContainer = styled.div`
   display: none;
 
-  @media screen and (min-width: 945px) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     display: flex;
     margin-left: auto;
