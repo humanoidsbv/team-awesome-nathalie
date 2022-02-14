@@ -1,4 +1,5 @@
 import { Header } from "../src/components/header/Header";
+import { SubHeader } from "../src/components/sub-header/SubHeader";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "../styles/global";
@@ -10,6 +11,7 @@ const Homepage = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Header />
+        <SubHeader />
       </ThemeProvider>
     </>
   );
