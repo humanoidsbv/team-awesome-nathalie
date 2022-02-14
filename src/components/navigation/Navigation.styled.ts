@@ -5,7 +5,7 @@ export const Container = styled.nav`
   font-family: ${({ theme }) => theme.fontPrimary};
   text-align: center;
 
-  @media (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     margin: 0;
     padding: 0;
   }
@@ -34,7 +34,7 @@ export const Menu = styled.ul<{ isActive: boolean }>`
     background-color: ${({ theme }) => theme.primaryColor700};
   }
 
-  @media (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     display: flex;
     font-size: 14px;
     height: auto;

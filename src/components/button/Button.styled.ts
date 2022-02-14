@@ -16,7 +16,7 @@ export const Button = styled.button`
   ${({ style }) =>
     style === "secondary" &&
     css`
-      color: green;
       border: 10px solid gray;
+      color: green;
     `};
 `;

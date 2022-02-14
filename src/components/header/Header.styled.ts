@@ -3,8 +3,8 @@ import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 
 export const Container = styled.div`
   display: flex;
-  position: fixed;
   flex-direction: column;
+  position: fixed;
   width: 100vw;
 `;
 
@@ -20,7 +20,7 @@ export const Header = styled.header`
     text-decoration: none;
   }
 
-  @media (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -38,7 +38,7 @@ export const Wrapper = styled.div`
     border: none;
   }
 
-  @media (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     justify-content: start;
 
     button {
@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
 export const UserContainer = styled.div`
   display: none;
 
-  @media (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     align-items: center;
     display: flex;
     margin-left: auto;
@@ -70,7 +70,9 @@ export const UserButton = styled.button`
 
   img {
     border-radius: 50%;
+    height: 36px;
     margin-left: auto;
+    width: 36px;
   }
 `;
 

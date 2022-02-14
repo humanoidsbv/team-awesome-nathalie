@@ -4,9 +4,9 @@ import * as Styled from "./SubHeader.styled";
 export const SubHeader = () => {
   return (
     <Styled.Container>
-      <Styled.TimesheetEntry>
-        Timesheets<Styled.Entries>12 Entries</Styled.Entries>
-      </Styled.TimesheetEntry>
+      <Styled.TimesheetText>
+        Timesheets<Styled.EntryText>12 Entries</Styled.EntryText>
+      </Styled.TimesheetText>
       <Styled.Button>
         <Button label="New time entry" style="primary" icon={true} />
       </Styled.Button>

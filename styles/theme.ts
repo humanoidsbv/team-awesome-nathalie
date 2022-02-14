@@ -5,6 +5,7 @@ export const theme = {
   fontPrimary: "Proxima Nova",
   fontSecondary: "Bello",
 
-  tablet: "min-width: 945px",
-  desktop: "min-width: 1024px",
+  mobile: "min-width: 480px",
+  tablet: "min-width: 768px",
+  desktop: "min-width: 830px",
 };

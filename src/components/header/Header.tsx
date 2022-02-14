@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+
+import * as Styled from "./Header.styled";
+
 import { Navigation } from "../navigation/";
 import { SubHeader } from "../sub-header";
-import * as Styled from "./Header.styled";
+
 import Hamburger from "../../../public/icons/hamburger.svg";
 import Close from "../../../public/icons/close.svg";
 import Logo from "../../../public/img/humanoids-logo.svg";
@@ -17,7 +20,7 @@ export const Header = () => {
           <a href="#">team awesome</a>
           <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
         </Styled.Wrapper>
-        <Navigation isActive={isActive} />
+        <Navigation {...{ isActive }} />
 
         <Styled.UserContainer>
           <Styled.UserButton>
