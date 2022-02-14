@@ -1,20 +1,26 @@
 import styled from "styled-components";
 import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100vw;
+`;
+
 export const Header = styled.header`
-  background-color: ${({ theme }) => theme.primaryColor};
+  background-color: ${({ theme }) => theme.primaryColor500};
   color: #fff;
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 26px;
-  position: fixed;
-  width: 100%;
+  width: 100vw;
 
   a {
     color: #fff;
     text-decoration: none;
   }
 
-  @media screen and (min-width: 945px) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -28,11 +34,11 @@ export const Wrapper = styled.div`
   padding: 20px 30px;
 
   button {
-    background-color: ${({ theme }) => theme.primaryColor};
+    background-color: ${({ theme }) => theme.primaryColor500};
     border: none;
   }
 
-  @media screen and (min-width: 945px) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     justify-content: start;
 
     button {
@@ -44,11 +50,11 @@ export const Wrapper = styled.div`
 export const UserContainer = styled.div`
   display: none;
 
-  @media screen and (min-width: 945px) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     align-items: center;
     display: flex;
     margin-left: auto;
-    margin-right: 32px;
+    margin-right: 30px;
   }
 `;
 
@@ -64,7 +70,9 @@ export const UserButton = styled.button`
 
   img {
     border-radius: 50%;
+    height: 36px;
     margin-left: auto;
+    width: 36px;
   }
 `;
 
