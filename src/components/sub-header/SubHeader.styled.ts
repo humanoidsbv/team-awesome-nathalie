@@ -10,7 +10,6 @@ export const Container = styled.div`
   width: 100%;
 
   @media (${({ theme }) => theme.tablet}) {
-    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,6 +18,7 @@ export const Container = styled.div`
 `;
 
 export const TimesheetEntry = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
