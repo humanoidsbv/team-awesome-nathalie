@@ -9,7 +9,7 @@ export const Container = styled.div`
   padding: 20px;
   width: 100%;
 
-  @media screen and (${({ theme }) => theme.desktop}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,7 +33,7 @@ export const EntryText = styled.span`
   color: #7f8fa4;
   font-size: 14px;
 
-  @media screen and (${({ theme }) => theme.desktop}) {
+  @media screen and (${({ theme }) => theme.tablet}) {
     border-left: 1px solid #7f8fa4;
     margin-left: 15px;
     padding-left: 15px;
@@ -43,7 +43,7 @@ export const EntryText = styled.span`
 export const Button = styled.div`
   align-items: center;
 
-  @media screen and (min-width: 500px) and (max-width: 830px) {
+  @media screen and (min-width: 480px) and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     margin: 0 auto;

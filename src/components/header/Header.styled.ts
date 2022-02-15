@@ -18,6 +18,7 @@ export const Container = styled.div`
   a {
     color: #fff;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   @media screen and (${({ theme }) => theme.tablet}) {

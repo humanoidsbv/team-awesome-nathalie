@@ -11,6 +11,6 @@ export const theme = {
   secondaryColor: "#37B047",
 
   mobile: "min-width: 480px",
-  tablet: "min-width: 768px",
-  desktop: "min-width: 940px",
+  tablet: "min-width: 767px",
+  desktop: "min-width: 925px",
 };
