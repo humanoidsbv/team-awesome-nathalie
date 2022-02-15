@@ -1,5 +1,9 @@
 import * as Styled from "./PageContainer.styled";
 
-export const PageContainer = ({ children }) => {
+interface PageContainerProps {
+  children: React.ReactNode;
+}
+
+export const PageContainer = ({ children }: PageContainerProps) => {
   return <Styled.PageContainer>{children}</Styled.PageContainer>;
 };
