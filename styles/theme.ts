@@ -10,7 +10,7 @@ export const theme = {
   primaryColor700: "#1166A5",
   secondaryColor: "#37B047",
 
-  mobile: "min-width: 480px",
-  tablet: "min-width: 767px",
-  desktop: "min-width: 912px",
+  breakpointMobile: "min-width: 480px",
+  breakpointTablet: "min-width: 767px",
+  breakpointDesktop: "min-width: 912px",
 };

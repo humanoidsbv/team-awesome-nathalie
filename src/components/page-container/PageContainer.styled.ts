@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   max-width: 1080px;
   padding-top: 230px;
 
-  @media screen and (${({ theme }) => theme.desktop}) {
+  @media screen and (${({ theme }) => theme.breakpointDesktop}) {
     padding-top: 190px;
   }
 `;

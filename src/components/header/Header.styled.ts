@@ -21,7 +21,7 @@ export const Container = styled.div`
     white-space: nowrap;
   }
 
-  @media screen and (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.breakpointTablet}) {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -39,7 +39,7 @@ export const Wrapper = styled.div`
     border: none;
   }
 
-  @media screen and (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.breakpointTablet}) {
     justify-content: start;
 
     button {
@@ -51,7 +51,7 @@ export const Wrapper = styled.div`
 export const UserContainer = styled.div`
   display: none;
 
-  @media screen and (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.breakpointTablet}) {
     align-items: center;
     display: flex;
     margin-left: auto;

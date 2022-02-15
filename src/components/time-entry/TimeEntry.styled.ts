@@ -21,7 +21,7 @@ export const TimeText = styled.div`
   text-align: right;
 `;
 
-export const TimeTextTime = styled.span`
+export const TimeAdded = styled.span`
   color: ${({ theme }) => theme.greyColor700};
   font-size: 14px;
   padding-top: 10px;

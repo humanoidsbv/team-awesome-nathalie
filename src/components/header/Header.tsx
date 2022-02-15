@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import * as Styled from "./Header.styled";
 
 import { Navigation } from "../navigation/";
-import { SubHeader } from "../sub-header";
+import { Subheader } from "../subheader";
 
-import Hamburger from "../../../public/icons/hamburger.svg";
 import Close from "../../../public/icons/close.svg";
+import Hamburger from "../../../public/icons/hamburger.svg";
 import Logo from "../../../public/img/humanoids-logo.svg";
 
 export const Header = () => {
@@ -30,7 +30,7 @@ export const Header = () => {
           <Styled.ArrowDown />
         </Styled.UserContainer>
       </Styled.Container>
-      <SubHeader />
+      <Subheader />
     </Styled.Header>
   );
 };

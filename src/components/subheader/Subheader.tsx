@@ -1,7 +1,8 @@
-import { Button } from "../button/Button";
-import * as Styled from "./SubHeader.styled";
+import * as Styled from "./Subheader.styled";
 
-export const SubHeader = () => {
+import { Button } from "../button/Button";
+
+export const Subheader = () => {
   return (
     <Styled.Container>
       <Styled.TimesheetText>
