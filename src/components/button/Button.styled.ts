@@ -17,6 +17,10 @@ export const Button = styled.button`
   padding: 13px 30px;
   width: 100%;
 
+  svg {
+    fill: #fff;
+  }
+
   ${({ style }: ButtonProps) =>
     style === "secondary" &&
     css`

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import * as Styled from "./Header.styled";
 
 import { Navigation } from "../navigation/";
-import { SubHeader } from "../sub-header";
+import { Subheader } from "../subheader";
 
-import Hamburger from "../../../public/icons/hamburger.svg";
 import Close from "../../../public/icons/close.svg";
+import Hamburger from "../../../public/icons/hamburger.svg";
 import Logo from "../../../public/img/humanoids-logo.svg";
 
 export const Header = () => {
@@ -14,8 +14,8 @@ export const Header = () => {
   const handleClick = () => setIsActive(!isActive);
 
   return (
-    <Styled.Container>
-      <Styled.Header>
+    <Styled.Header>
+      <Styled.Container>
         <Styled.Wrapper>
           <a href="#">team awesome</a>
           <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
@@ -29,8 +29,8 @@ export const Header = () => {
           </Styled.UserButton>
           <Styled.ArrowDown />
         </Styled.UserContainer>
-      </Styled.Header>
-      <SubHeader />
-    </Styled.Container>
+      </Styled.Container>
+      <Subheader />
+    </Styled.Header>
   );
 };

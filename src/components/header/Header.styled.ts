@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 
-export const Container = styled.div`
+export const Header = styled.header`
   display: flex;
   flex-direction: column;
   position: fixed;
   width: 100vw;
 `;
 
-export const Header = styled.header`
+export const Container = styled.div`
   background-color: ${({ theme }) => theme.primaryColor500};
   color: #fff;
   font-family: ${({ theme }) => theme.fontSecondary};
@@ -18,9 +18,10 @@ export const Header = styled.header`
   a {
     color: #fff;
     text-decoration: none;
+    white-space: nowrap;
   }
 
-  @media screen and (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.breakpointTablet}) {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -38,7 +39,7 @@ export const Wrapper = styled.div`
     border: none;
   }
 
-  @media screen and (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.breakpointTablet}) {
     justify-content: start;
 
     button {
@@ -50,7 +51,7 @@ export const Wrapper = styled.div`
 export const UserContainer = styled.div`
   display: none;
 
-  @media screen and (${({ theme }) => theme.tablet}) {
+  @media screen and (${({ theme }) => theme.breakpointTablet}) {
     align-items: center;
     display: flex;
     margin-left: auto;
