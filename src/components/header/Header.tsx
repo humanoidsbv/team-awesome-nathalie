@@ -14,8 +14,8 @@ export const Header = () => {
   const handleClick = () => setIsActive(!isActive);
 
   return (
-    <Styled.Container>
-      <Styled.Header>
+    <Styled.Header>
+      <Styled.Container>
         <Styled.Wrapper>
           <a href="#">team awesome</a>
           <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
@@ -29,8 +29,8 @@ export const Header = () => {
           </Styled.UserButton>
           <Styled.ArrowDown />
         </Styled.UserContainer>
-      </Styled.Header>
+      </Styled.Container>
       <SubHeader />
-    </Styled.Container>
+    </Styled.Header>
   );
 };

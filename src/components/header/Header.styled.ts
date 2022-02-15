@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 
-export const Container = styled.div`
+export const Header = styled.header`
   display: flex;
   flex-direction: column;
-  position: static;
+  position: fixed;
   width: 100vw;
 `;
 
-export const Header = styled.header`
+export const Container = styled.div`
   background-color: ${({ theme }) => theme.primaryColor500};
   color: #fff;
   font-family: ${({ theme }) => theme.fontSecondary};
