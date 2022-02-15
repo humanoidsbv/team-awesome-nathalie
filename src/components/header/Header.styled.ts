@@ -4,7 +4,7 @@ import ArrowDownIcon from "../../../public/icons/arrow-down.svg";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: static;
   width: 100vw;
 `;
 
