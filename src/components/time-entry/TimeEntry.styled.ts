@@ -16,9 +16,9 @@ export const TimeEntry = styled.div`
 `;
 
 export const TimeText = styled.div`
-  text-align: right;
   display: flex;
   flex-direction: column;
+  text-align: right;
 `;
 
 export const TimeTextTime = styled.span`
