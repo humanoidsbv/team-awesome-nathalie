@@ -7,6 +7,7 @@ import { theme } from "../styles/theme";
 
 import { Header } from "../src/components/header/Header";
 import { TimeEntry } from "../src/components/time-entry/TimeEntry";
+import { PageContainer } from "../src/components/page-container/PageContainer";
 
 const Homepage = () => {
   return (
@@ -14,7 +15,9 @@ const Homepage = () => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Header />
-        <TimeEntry />
+        <PageContainer>
+          <TimeEntry />
+        </PageContainer>
       </ThemeProvider>
     </>
   );
