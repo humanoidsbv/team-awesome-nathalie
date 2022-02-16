@@ -23,7 +23,7 @@ export const TimeText = styled.div`
   margin-right: 25px;
 `;
 
-export const DurationTime = styled.span`
+export const HoursWorked = styled.span`
   color: ${({ theme }) => theme.greyColor700};
   font-size: 14px;
   padding-top: 10px;
