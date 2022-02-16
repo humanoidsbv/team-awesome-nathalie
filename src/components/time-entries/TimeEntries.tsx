@@ -13,7 +13,7 @@ export const TimeEntries = () => {
     setTimeEntries([
       ...mockTimeEntries,
       {
-        id: 0.852425099514819,
+        id: 0.85242509951487,
         client: "Amazon",
         startTimestamp: "2019-09-26T16:48:00.000Z",
         stopTimestamp: "2019-09-26T18:00:00.000Z",
@@ -29,6 +29,7 @@ export const TimeEntries = () => {
       <button onClick={handleClick}>Add time entry</button>
       {timeEntries.map((timeEntry) => (
         <TimeEntry
+          key={timeEntry.id}
           client={timeEntry.client}
           startTimestamp={timeEntry.startTimestamp}
           stopTimestamp={timeEntry.stopTimestamp}

@@ -15,8 +15,6 @@ export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryPr
     minute: "2-digit",
   });
 
-  console.log();
-
   const stopDate = new Date(stopTimestamp);
   const stopTime = stopDate.toLocaleTimeString("nl-NL", {
     hour: "2-digit",
@@ -27,8 +25,6 @@ export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryPr
   const totalMinutes = Math.floor(difference / 1000 / 60);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
-
-  console.log(hours);
 
   return (
     <Styled.TimeEntry>
