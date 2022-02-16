@@ -12,17 +12,28 @@ export const TimeEntry = styled.div`
   font-weight: 600;
   justify-content: space-between;
   margin: 0 10px;
-  padding: 20px;
+  padding-left: 20px;
 `;
 
 export const TimeText = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;
+  margin-left: auto;
+  margin-right: 25px;
 `;
 
-export const TimeAdded = styled.span`
+export const DurationTime = styled.span`
   color: ${({ theme }) => theme.greyColor700};
   font-size: 14px;
   padding-top: 10px;
+`;
+
+export const DeleteButton = styled.div`
+  padding: 30px 15px;
+
+  :hover {
+    border: 1px dashed ${({ theme }) => theme.greyColor300};
+    cursor: pointer;
+  }
 `;

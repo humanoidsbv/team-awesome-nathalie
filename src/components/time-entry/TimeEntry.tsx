@@ -7,9 +7,11 @@ export const TimeEntry = () => {
     <Styled.TimeEntry>
       Port of Rotterdam
       <Styled.TimeText>
-        09:00 - 17:00 <Styled.TimeAdded>08:00</Styled.TimeAdded>
+        09:00 - 17:00 <Styled.DurationTime>08:00</Styled.DurationTime>
       </Styled.TimeText>
-      <DeleteIcon />
+      <Styled.DeleteButton>
+        <DeleteIcon />
+      </Styled.DeleteButton>
     </Styled.TimeEntry>
   );
 };
