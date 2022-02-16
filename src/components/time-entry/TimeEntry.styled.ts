@@ -31,9 +31,18 @@ export const HoursWorked = styled.span`
 
 export const DeleteButton = styled.div`
   padding: 30px 15px;
+  border: 1px dashed transparent;
+
+  svg {
+    fill: ${({ theme }) => theme.greyColor700};
+  }
 
   :hover {
     border: 1px dashed ${({ theme }) => theme.greyColor300};
     cursor: pointer;
+
+    svg {
+      fill: #ffa2ad;
+    }
   }
 `;

@@ -10,9 +10,6 @@ interface TimeEntryProps {
 
 export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryProps) => {
   const startDate = new Date(startTimestamp);
-  const hoursStart = startDate.getHours();
-  const minutesStart = startDate.getMinutes();
-  const convertStart = hoursStart + minutesStart / 60;
   const startTime = startDate.toLocaleTimeString("nl-NL", {
     hour: "2-digit",
     minute: "2-digit",
@@ -21,19 +18,27 @@ export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryPr
   console.log();
 
   const stopDate = new Date(stopTimestamp);
-  const hoursStop = stopDate.getHours();
-  const minutesStop = stopDate.getMinutes();
-  const convertStop = hoursStop + minutesStop / 60;
   const stopTime = stopDate.toLocaleTimeString("nl-NL", {
     hour: "2-digit",
     minute: "2-digit",
   });
+
+  const difference = Math.abs(stopDate - startDate);
+  const totalMinutes = Math.floor(difference / 1000 / 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  console.log(hours);
+
   return (
     <Styled.TimeEntry>
       {client}
       <Styled.TimeText>
         {startTime} - {stopTime}
-        <Styled.HoursWorked>{convertStop - convertStart} hours</Styled.HoursWorked>
+        <Styled.HoursWorked>
+          {" "}
+          {hours < 10 ? "0" + hours : hours}:{minutes < 10 ? "0" + minutes : minutes}
+        </Styled.HoursWorked>
       </Styled.TimeText>
       <Styled.DeleteButton>
         <DeleteIcon />
