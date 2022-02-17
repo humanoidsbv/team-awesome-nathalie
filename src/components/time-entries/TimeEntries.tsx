@@ -26,7 +26,9 @@ export const TimeEntries = () => {
       {timeEntries.map(({ id, startTimestamp, client, stopTimestamp }, i, array) => {
         const currentDate = new Date(startTimestamp).toLocaleDateString();
         const renderHeader =
-          i === 0 ? true : new Date(array[i - 1].startTimestamp).toLocaleDateString() < currentDate;
+          i === 0
+            ? true
+            : new Date(array[i - 1].startTimestamp).toLocaleDateString() !== currentDate;
 
         return (
           <React.Fragment key={id}>

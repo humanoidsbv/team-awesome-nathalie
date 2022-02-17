@@ -32,8 +32,7 @@ export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryPr
       <Styled.TimeText>
         {startTime} - {stopTime}
         <Styled.HoursWorked>
-          {hours < 10 ? String(hours).padStart(2, "0") : hours}:
-          {minutes < 10 ? String(minutes).padStart(2, "0") : minutes}
+          {String(hours).padStart(2, "0")}:{String(minutes).padStart(2, "0")}
         </Styled.HoursWorked>
       </Styled.TimeText>
       <Styled.DeleteButton>
