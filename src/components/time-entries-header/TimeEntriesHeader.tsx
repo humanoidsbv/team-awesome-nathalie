@@ -7,7 +7,7 @@ interface TimeEntriesHeaderProps {
 export const TimeEntriesHeader = ({ date }: TimeEntriesHeaderProps) => {
   const dates = new Date(date);
 
-  const displayDate = dates.toLocaleDateString("en-NL", {
+  const formattedDate = dates.toLocaleDateString("en-NL", {
     weekday: "long",
     month: "numeric",
     day: "numeric",
@@ -15,7 +15,7 @@ export const TimeEntriesHeader = ({ date }: TimeEntriesHeaderProps) => {
 
   return (
     <Styled.TimeEntriesHeader>
-      {displayDate}
+      {formattedDate}
       <span>08:00</span>
     </Styled.TimeEntriesHeader>
   );

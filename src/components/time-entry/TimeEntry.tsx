@@ -9,19 +9,15 @@ interface TimeEntryProps {
 }
 
 export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryProps) => {
+  const timeFormat: Intl.DateTimeFormatOptions = {
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+
   const startDate = new Date(startTimestamp);
-  const startTime = startDate.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
   const stopDate = new Date(stopTimestamp);
-  const stopTime = stopDate.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
 
-  const difference = Math.abs(stopDate - startDate);
+  const difference = Math.abs(stopDate.valueOf() - startDate.valueOf());
   const totalMinutes = Math.floor(difference / 1000 / 60);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
@@ -30,7 +26,8 @@ export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryPr
     <Styled.TimeEntry>
       {client}
       <Styled.TimeText>
-        {startTime} - {stopTime}
+        {startDate.toLocaleTimeString("nl-NL", timeFormat)} -{" "}
+        {stopDate.toLocaleTimeString("nl-NL", timeFormat)}
         <Styled.HoursWorked>
           {String(hours).padStart(2, "0")}:{String(minutes).padStart(2, "0")}
         </Styled.HoursWorked>

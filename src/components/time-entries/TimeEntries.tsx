@@ -14,8 +14,8 @@ export const TimeEntries = () => {
       {
         id: 0.85242509951487,
         client: "Amazon",
-        startTimestamp: "2019-09-25T16:48:00.000Z",
-        stopTimestamp: "2019-09-25T18:00:00.000Z",
+        startTimestamp: "2021-10-25T16:48:00.000Z",
+        stopTimestamp: "2021-10-25T18:00:00.000Z",
       },
     ]);
   }
