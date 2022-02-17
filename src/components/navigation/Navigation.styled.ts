@@ -21,7 +21,7 @@ export const Menu = styled.ul<{ isActive: boolean }>`
   padding: 0;
 
   li {
-    padding: 17px;
+    padding: 20px;
   }
 
   a {
