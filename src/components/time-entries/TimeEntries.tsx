@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
@@ -25,16 +25,18 @@ export const TimeEntries = () => {
 
   return (
     <>
-      {timeEntries.map(({ id, startTime, client, endTime }, i, array) => {
+      {timeEntries.map(({ client, endTime, id, startTime }, i) => {
         const currentDate = new Date(startTime).toLocaleDateString();
         const renderHeader =
-          i === 0 ? true : new Date(array[i - 1].startTime).toLocaleDateString() !== currentDate;
+          i === 0
+            ? true
+            : new Date(timeEntries[i - 1].startTime).toLocaleDateString() !== currentDate;
 
         return (
           <React.Fragment key={id}>
             {renderHeader && <TimeEntriesHeader date={startTime} />}
 
-            <TimeEntry client={client} startTimestamp={startTime} stopTimestamp={endTime} />
+            <TimeEntry client={client} startTime={startTime} endTime={endTime} />
           </React.Fragment>
         );
       })}
