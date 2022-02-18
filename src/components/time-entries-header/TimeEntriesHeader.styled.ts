@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TimeEntries = styled.div`
+export const TimeEntriesHeader = styled.div`
   color: ${({ theme }) => theme.greyColor700};
   display: flex;
   font-family: ${({ theme }) => theme.fontPrimary};

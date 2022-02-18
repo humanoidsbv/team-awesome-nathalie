@@ -26,12 +26,14 @@ export const Menu = styled.ul<{ isActive: boolean }>`
 
   a {
     color: #fff;
+    padding: 3px 10px;
     text-align: center;
     text-decoration: none;
   }
 
   a:hover {
     background-color: ${({ theme }) => theme.primaryColor700};
+    padding: 3px 10px;
   }
 
   @media screen and (${({ theme }) => theme.breakpointTablet}) {
