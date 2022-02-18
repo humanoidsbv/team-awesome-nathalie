@@ -1,44 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
-import mockTimeEntries from "../../fixtures/time-entries.json";
-
 export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [timeEntries, setTimeEntries] = useState([]);
 
-  function handleClick() {
-    setTimeEntries([
-      ...mockTimeEntries,
-      {
-        id: 0.85242509951487,
-        client: "Amazon",
-        startTimestamp: "2021-10-25T16:48:00.000Z",
-        stopTimestamp: "2021-10-25T18:00:00.000Z",
-      },
-    ]);
+  async function getTimeEntries() {
+    const response = await fetch("http://localhost:3004/time-entries", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    return response.json();
   }
+
+  async function fetchTimeEntries() {
+    setTimeEntries(await getTimeEntries());
+  }
+
+  useEffect(() => {
+    fetchTimeEntries();
+  }, []);
 
   return (
     <>
-      <button onClick={handleClick}>Add time entry</button>
-      {timeEntries.map(({ id, startTimestamp, client, stopTimestamp }, i, array) => {
-        const currentDate = new Date(startTimestamp).toLocaleDateString();
+      {timeEntries.map(({ client, endTime, id, startTime }, i) => {
+        const currentDate = new Date(startTime).toLocaleDateString();
         const renderHeader =
           i === 0
             ? true
-            : new Date(array[i - 1].startTimestamp).toLocaleDateString() !== currentDate;
+            : new Date(timeEntries[i - 1].startTime).toLocaleDateString() !== currentDate;
 
         return (
           <React.Fragment key={id}>
-            {renderHeader && <TimeEntriesHeader date={startTimestamp} />}
+            {renderHeader && <TimeEntriesHeader date={startTime} />}
 
-            <TimeEntry
-              client={client}
-              startTimestamp={startTimestamp}
-              stopTimestamp={stopTimestamp}
-            />
+            <TimeEntry client={client} endTime={endTime} startTime={startTime} />
           </React.Fragment>
         );
       })}
