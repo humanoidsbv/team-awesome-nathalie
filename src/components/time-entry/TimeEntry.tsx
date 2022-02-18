@@ -4,11 +4,11 @@ import DeleteIcon from "../../../public/icons/delete-icon.svg";
 
 interface TimeEntryProps {
   client: string;
-  startTime: string;
   endTime: string;
+  startTime: string;
 }
 
-export const TimeEntry = ({ client, startTime, endTime }: TimeEntryProps) => {
+export const TimeEntry = ({ client, endTime, startTime }: TimeEntryProps) => {
   const timeFormat: Intl.DateTimeFormatOptions = {
     hour: "2-digit",
     minute: "2-digit",

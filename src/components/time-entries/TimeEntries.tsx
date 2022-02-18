@@ -36,7 +36,7 @@ export const TimeEntries = () => {
           <React.Fragment key={id}>
             {renderHeader && <TimeEntriesHeader date={startTime} />}
 
-            <TimeEntry client={client} startTime={startTime} endTime={endTime} />
+            <TimeEntry client={client} endTime={endTime} startTime={startTime} />
           </React.Fragment>
         );
       })}
