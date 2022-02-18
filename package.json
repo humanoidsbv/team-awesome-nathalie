@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "json-server": "^0.17.0",
     "next": "^12.0.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -10,7 +11,9 @@
   "description": "team awesome page",
   "main": "main.js",
   "scripts": {
-    "dev": "next",
+    "json-server": "json-server --watch db.json --port 3004",
+    "dev": "npm run next & npm run json-server",
+    "next": "next",
     "build": "next build",
     "start": "next start"
   },

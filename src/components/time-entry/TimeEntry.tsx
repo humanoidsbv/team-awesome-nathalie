@@ -17,7 +17,7 @@ export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryPr
   const startDate = new Date(startTimestamp);
   const stopDate = new Date(stopTimestamp);
 
-  const difference = Math.abs(stopDate.valueOf() - startDate.valueOf());
+  const difference = Math.abs(stopDate.getTime() - startDate.getTime());
   const totalMinutes = Math.floor(difference / 1000 / 60);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
