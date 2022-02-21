@@ -23,15 +23,20 @@ export const Subheader = () => {
         />
       </Styled.Button>
       <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-        <h1>New time entry</h1> <Close />
+        <span>
+          <h1>New time entry</h1> <Close onClick={() => setIsModalActive(false)} />
+        </span>
         <p>Client</p>
+        <input type="text" />
         <p>Activity</p>
+        <input type="text" />
         <p>Date</p>
-        <p>From</p>
-        <p>To</p>
-        <p>Total</p>
-        <Button label="Cancel" />
-        <Button label="Add time entry" />
+        <input type="text" />
+        <span>
+          <p>From</p>
+          <p>To</p>
+          <p>Total</p>
+        </span>
       </Modal>
     </Styled.Container>
   );

@@ -1,6 +1,8 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
+import { Button } from "../button/Button";
+
 import * as Styled from "./Modal.styled";
 
 interface ModalProps {
@@ -12,11 +14,16 @@ interface ModalProps {
 export const Modal = ({ children, isActive, onClose }: ModalProps) => {
   return isActive
     ? createPortal(
-        <Styled.Modal onClick={onClose}>
-          <div role="dialog" aria-labelledby="dialog" aria-modal="true">
-            <button onClick={onClose}>X</button>
-            {children}
-          </div>
+        <Styled.Modal>
+          <Styled.Children>
+            <div role="dialog" aria-labelledby="dialog" aria-modal="true">
+              {children}
+            </div>
+            <Styled.Buttons>
+              <Button label="Cancel" onClick={onClose} />
+              <Button label="Add time entry" />
+            </Styled.Buttons>
+          </Styled.Children>
         </Styled.Modal>,
         document.body,
       )
