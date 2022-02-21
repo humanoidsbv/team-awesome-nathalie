@@ -28,6 +28,12 @@ export const Modal = styled.div`
     justify-content: space-between;
   }
 
+  input {
+    font-size: 14px;
+    height: 40px;
+    width: 500px;
+  }
+
   @media screen and (${({ theme }) => theme.breakpointDesktop}) {
     background-color: rgba(75, 84, 100, 0.8);
     height: 100vh;
