@@ -49,3 +49,7 @@ export const Button = styled.div`
     margin: 0 auto;
   }
 `;
+
+export const ModalButtons = styled.div`
+  display: flex;
+`;

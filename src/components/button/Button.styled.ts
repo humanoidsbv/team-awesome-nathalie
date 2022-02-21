@@ -10,6 +10,7 @@ export const Button = styled.button`
   border-radius: 4px;
   border: none;
   color: #fff;
+  cursor: pointer;
   display: flex;
   font-size: 14px;
   gap: 15px;
