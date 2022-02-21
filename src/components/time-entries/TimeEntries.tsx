@@ -5,16 +5,30 @@ import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
 import * as Types from "./TimeEntries.types";
 
+class NotFoundError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "NotFoundError";
+  }
+}
+
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
 
   async function getTimeEntries(): Promise<Types.TimeEntry[]> {
-    const response = await fetch("http://localhost:3004/time-entries", {
+    return fetch("http://localhost:3004/time-entries", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
-    });
+    })
+      .then((response) => {
+        if (response.status === 404) {
+          throw new NotFoundError(response);
+        }
 
-    return response.json();
+        return response;
+      })
+      .then((response) => response.json())
+      .catch((error) => error);
   }
 
   async function fetchTimeEntries() {
