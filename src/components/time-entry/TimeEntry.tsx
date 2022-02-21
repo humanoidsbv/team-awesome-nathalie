@@ -4,20 +4,20 @@ import DeleteIcon from "../../../public/icons/delete-icon.svg";
 
 interface TimeEntryProps {
   client: string;
-  startTimestamp: string;
-  stopTimestamp: string;
+  endTime: string;
+  startTime: string;
 }
 
-export const TimeEntry = ({ client, startTimestamp, stopTimestamp }: TimeEntryProps) => {
+export const TimeEntry = ({ client, endTime, startTime }: TimeEntryProps) => {
   const timeFormat: Intl.DateTimeFormatOptions = {
     hour: "2-digit",
     minute: "2-digit",
   };
 
-  const startDate = new Date(startTimestamp);
-  const stopDate = new Date(stopTimestamp);
+  const startDate = new Date(startTime);
+  const stopDate = new Date(endTime);
 
-  const difference = Math.abs(stopDate.valueOf() - startDate.valueOf());
+  const difference = Math.abs(stopDate.getTime() - startDate.getTime());
   const totalMinutes = Math.floor(difference / 1000 / 60);
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
