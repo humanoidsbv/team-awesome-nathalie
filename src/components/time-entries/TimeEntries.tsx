@@ -3,14 +3,9 @@ import React, { useEffect, useState } from "react";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
-import * as Types from "./TimeEntries.types";
+import { NotFoundError } from "../../error/not-found-error";
 
-class NotFoundError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "NotFoundError";
-  }
-}
+import * as Types from "./TimeEntries.types";
 
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
