@@ -3,16 +3,27 @@ import React, { useEffect, useState } from "react";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
-export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState([]);
+import { NotFoundError } from "../../error/not-found-error";
 
-  async function getTimeEntries() {
-    const response = await fetch("http://localhost:3004/time-entries", {
+import * as Types from "./TimeEntries.types";
+
+export const TimeEntries = () => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
+
+  async function getTimeEntries(): Promise<Types.TimeEntry[]> {
+    return fetch("http://localhost:3004/time-entries", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
-    });
+    })
+      .then((response) => {
+        if (response.status === 404) {
+          throw new NotFoundError(response);
+        }
 
-    return response.json();
+        return response;
+      })
+      .then((response) => response.json())
+      .catch((error) => error);
   }
 
   async function fetchTimeEntries() {
