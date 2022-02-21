@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
-export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState([]);
+import * as Types from "./TimeEntries.types";
 
-  async function getTimeEntries() {
+export const TimeEntries = () => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
+
+  async function getTimeEntries(): Promise<Types.TimeEntry[]> {
     const response = await fetch("http://localhost:3004/time-entries", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
