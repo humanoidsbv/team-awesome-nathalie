@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Modal = styled.div`
+export const ModalContainer = styled.div`
   background-color: #fff;
   color: ${({ theme }) => theme.greyColor700};
   font-family: ${({ theme }) => theme.fontPrimary};
@@ -31,7 +31,8 @@ export const Modal = styled.div`
   }
 `;
 
-export const Children = styled.div`
+export const ModalContent = styled.div`
+  height: 100%;
   @media screen and (${({ theme }) => theme.breakpointDesktop}) {
     background: #fff;
     border-radius: 4px;
@@ -40,10 +41,4 @@ export const Children = styled.div`
     padding: 30px;
     width: 560px;
   }
-`;
-
-export const Buttons = styled.div`
-  display: flex;
-  gap: 30px;
-  justify-content: space-evenly;
 `;

@@ -30,7 +30,7 @@ export const Header = () => {
           <Styled.ArrowDown />
         </Styled.UserContainer>
       </Styled.Container>
-      <Subheader />
+      {/* <Subheader /> */}
     </Styled.Header>
   );
 };

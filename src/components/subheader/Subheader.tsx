@@ -1,29 +1,26 @@
 import React, { useState } from "react";
 
 import { Button } from "../button/Button";
-import { Form } from "../form/Form";
-import { Modal } from "../modal/Modal";
 
 import * as Styled from "./Subheader.styled";
 
-import Close from "../../../public/icons/close.svg";
+interface SubheaderProps {
+  buttonLabel: string;
+  onClick: () => void;
+  subTitle: string;
+  title: string;
+}
 
-export const Subheader = () => {
-  const [isModalActive, setIsModalActive] = useState(false);
+export const Subheader = ({ buttonLabel, onClick, subTitle, title }: SubheaderProps) => {
   return (
     <Styled.Container>
       <Styled.TimesheetText>
-        Timesheets<Styled.EntryText>12 Entries</Styled.EntryText>
+        {title}
+        <Styled.EntryText>{subTitle}</Styled.EntryText>
       </Styled.TimesheetText>
       <Styled.Button>
-        <Button icon label="New time entry" onClick={() => setIsModalActive(true)} kind="primary" />
+        <Button icon label={buttonLabel} {...{ onClick }} />
       </Styled.Button>
-      <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-        <span>
-          <h1>New time entry</h1> <Close onClick={() => setIsModalActive(false)} />
-        </span>
-        <Form />
-      </Modal>
     </Styled.Container>
   );
 };

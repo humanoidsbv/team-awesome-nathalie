@@ -2,7 +2,13 @@ import React, { useRef, useState } from "react";
 
 import * as Styled from "./Form.styled";
 
-export const Form = () => {
+import { Button } from "../button/Button";
+
+interface FormProps {
+  onClose: () => void;
+}
+
+export const Form = ({ onClose }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntry>({});
   const [IsFormValid, setIsFormValid] = useState(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -41,7 +47,7 @@ export const Form = () => {
           <input name="date" onChange={handleChange} type="date" value={newTimeEntry.date ?? ""} />
         </Styled.DateInput>
         <Styled.TimeInputWrapper>
-          <Styled.StartTimeInput>
+          <Styled.TimeInput>
             <label htmlFor="startTime">From</label>
             <input
               name="startTime"
@@ -49,8 +55,8 @@ export const Form = () => {
               type="time"
               value={newTimeEntry.startTime ?? ""}
             />
-          </Styled.StartTimeInput>
-          <Styled.EndTimeInput>
+          </Styled.TimeInput>
+          <Styled.TimeInput>
             <label htmlFor="endTime">To</label>
             <input
               name="endTime"
@@ -58,14 +64,17 @@ export const Form = () => {
               type="time"
               value={newTimeEntry.endTime ?? ""}
             />
-          </Styled.EndTimeInput>
+          </Styled.TimeInput>
           <Styled.TotalTime>
             Total
             <p>08:00</p>
           </Styled.TotalTime>
         </Styled.TimeInputWrapper>
       </Styled.DateTimeInputWrapper>
-      <input type="submit" />
+      <Styled.Buttons>
+        <Button label="Cancel" onClick={onClose} kind="secondary" />
+        <Button label="Add time entry" />
+      </Styled.Buttons>
     </Styled.Form>
   );
 };

@@ -1,30 +1,28 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
-import { Button } from "../button/Button";
-
 import * as Styled from "./Modal.styled";
+
+import Close from "../../../public/icons/close.svg";
 
 interface ModalProps {
   children: React.ReactNode;
   isActive: boolean;
   onClose: () => void;
+  title: string;
 }
 
-export const Modal = ({ children, isActive, onClose }: ModalProps) => {
+export const Modal = ({ children, isActive, onClose, title }: ModalProps) => {
   return isActive
     ? createPortal(
-        <Styled.Modal>
-          <Styled.Children>
-            <div role="dialog" aria-labelledby="dialog" aria-modal="true">
-              {children}
-            </div>
-            <Styled.Buttons>
-              <Button label="Cancel" onClick={onClose} kind="secondary" />
-              <Button label="Add time entry" />
-            </Styled.Buttons>
-          </Styled.Children>
-        </Styled.Modal>,
+        <Styled.ModalContainer>
+          <Styled.ModalContent role="dialog" aria-labelledby="dialog" aria-modal="true">
+            <span>
+              <h1>{title}</h1> <Close onClick={onClose} />
+            </span>
+            {children}
+          </Styled.ModalContent>
+        </Styled.ModalContainer>,
         document.body,
       )
     : null;
