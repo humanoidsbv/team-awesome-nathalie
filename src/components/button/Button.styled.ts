@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ButtonProps {
-  style?: "primary" | "secondary";
+  kind?: "primary" | "secondary";
 }
 
 export const Button = styled.button`
@@ -22,8 +22,8 @@ export const Button = styled.button`
     fill: #fff;
   }
 
-  ${({ style }: ButtonProps) =>
-    style === "secondary" &&
+  ${({ kind }: ButtonProps) =>
+    kind === "secondary" &&
     css`
       background-color: ${({ theme }) => theme.greyColor100};
       color: ${({ theme }) => theme.greyColor900};

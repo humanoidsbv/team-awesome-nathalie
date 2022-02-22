@@ -12,11 +12,7 @@ export const Modal = styled.div`
 
   h1 {
     font-size: 18px;
-  }
-
-  p {
-    font-size: 14px;
-    padding: 20px 0 10px;
+    font-weight: 400;
   }
 
   svg {
@@ -26,12 +22,6 @@ export const Modal = styled.div`
   span {
     display: flex;
     justify-content: space-between;
-  }
-
-  input {
-    font-size: 14px;
-    height: 40px;
-    width: 500px;
   }
 
   @media screen and (${({ theme }) => theme.breakpointDesktop}) {

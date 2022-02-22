@@ -20,7 +20,7 @@ export const Modal = ({ children, isActive, onClose }: ModalProps) => {
               {children}
             </div>
             <Styled.Buttons>
-              <Button label="Cancel" onClick={onClose} />
+              <Button label="Cancel" onClick={onClose} kind="secondary" />
               <Button label="Add time entry" />
             </Styled.Buttons>
           </Styled.Children>
