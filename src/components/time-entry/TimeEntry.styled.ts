@@ -11,6 +11,7 @@ export const TimeEntry = styled.div`
   font-size: 18px;
   font-weight: 600;
   justify-content: space-between;
+  margin: 0 10px;
   padding-left: 20px;
 `;
 
