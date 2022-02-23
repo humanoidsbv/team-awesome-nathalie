@@ -16,6 +16,10 @@ export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
   const [isModalActive, setIsModalActive] = useState(false);
 
+  function createTimeEntry(newTimeEntry) {
+    setTimeEntries([...timeEntries, newTimeEntry]);
+  }
+
   async function fetchTimeEntries() {
     setTimeEntries(await getTimeEntries());
   }
@@ -37,7 +41,7 @@ export const TimeEntries = () => {
         onClose={() => setIsModalActive(false)}
         title="New time entry"
       >
-        <Form onClose={() => setIsModalActive(false)} />
+        <Form onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
       </Modal>
       <PageContainer>
         {timeEntries.map(({ client, endTime, id, startTime }, i) => {
