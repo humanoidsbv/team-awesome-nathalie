@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import * as Styled from "./Header.styled";
 
 import { Navigation } from "../navigation/";
-import { Subheader } from "../subheader";
 
 import Close from "../../../public/icons/close.svg";
 import Hamburger from "../../../public/icons/hamburger.svg";
@@ -30,7 +29,6 @@ export const Header = () => {
           <Styled.ArrowDown />
         </Styled.UserContainer>
       </Styled.Container>
-      {/* <Subheader /> */}
     </Styled.Header>
   );
 };

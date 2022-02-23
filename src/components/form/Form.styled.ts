@@ -13,6 +13,8 @@ export const Form = styled.form`
   }
 
   input {
+    border: 1px solid ${({ theme }) => theme.greyColor300};
+    border-radius: 4px;
     font-size: 14px;
     height: 40px;
     padding: 15px;
@@ -21,6 +23,10 @@ export const Form = styled.form`
 
   p {
     font-size: 14px;
+  }
+
+  span {
+    color: red;
   }
 `;
 
@@ -53,6 +59,7 @@ export const TimeInput = styled.div`
 export const TotalTime = styled.div`
   display: flex;
   flex-direction: column;
+  font-size: 14px;
   margin-left: auto;
   padding-top: 20px;
 

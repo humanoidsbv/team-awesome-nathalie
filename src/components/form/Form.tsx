@@ -13,6 +13,11 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntry>({});
   const [IsFormValid, setIsFormValid] = useState(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const [isValid, setIsValid] = useState(true);
+
+  const handleBlur = (event) => {
+    setIsValid(event.target.checkValidity());
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -24,12 +29,12 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
       startTime: startTimestamp,
     };
     onCreate(newTimeEntries);
-    // setNewTimeEntry({});
+    onClose();
   };
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    setNewTimeEntry({ ...newTimeEntry, [target.name]: target.value });
     setIsFormValid(formRef.current?.checkValidity());
+    setNewTimeEntry({ ...newTimeEntry, [target.name]: target.value });
   };
 
   return (
@@ -38,41 +43,62 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
       <input
         minLength={2}
         name="client"
+        onBlur={handleBlur}
         onChange={handleChange}
+        required
         type="text"
         value={newTimeEntry.client ?? ""}
       />
+      {!isValid && <span>This field is required! (min. 2 characters)</span>}
       <label htmlFor="activity">Activity</label>
       <input
         minLength={2}
         name="activity"
+        onBlur={handleBlur}
         onChange={handleChange}
+        required
         type="text"
         value={newTimeEntry.activity ?? ""}
       />
+      {!isValid && <span>This field is required! (min. 2 characters)</span>}
+
       <Styled.DateTimeInputWrapper>
         <Styled.DateInput>
           <label htmlFor="date">Date</label>
-          <input name="date" onChange={handleChange} type="date" value={newTimeEntry.date ?? ""} />
+          <input
+            name="date"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            required
+            type="date"
+            value={newTimeEntry.date ?? ""}
+          />
+          {!isValid && <span>This field is required!</span>}
         </Styled.DateInput>
         <Styled.TimeInputWrapper>
           <Styled.TimeInput>
             <label htmlFor="startTime">From</label>
             <input
               name="startTime"
+              onBlur={handleBlur}
               onChange={handleChange}
+              required
               type="time"
               value={newTimeEntry.startTime ?? ""}
             />
+            {!isValid && <span>This field is required!</span>}
           </Styled.TimeInput>
           <Styled.TimeInput>
             <label htmlFor="endTime">To</label>
             <input
               name="endTime"
+              onBlur={handleBlur}
               onChange={handleChange}
+              required
               type="time"
               value={newTimeEntry.endTime ?? ""}
             />
+            {!isValid && <span>This field is required!</span>}
           </Styled.TimeInput>
           <Styled.TotalTime>
             Total
@@ -82,7 +108,7 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
       </Styled.DateTimeInputWrapper>
       <Styled.Buttons>
         <Button label="Cancel" onClick={onClose} kind="secondary" />
-        <Button label="Add time entry" onClick={handleSubmit} />
+        <Button label="Add time entry" onClick={handleSubmit} disabled={!IsFormValid} />
       </Styled.Buttons>
     </Styled.Form>
   );

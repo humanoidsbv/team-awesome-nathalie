@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 interface ButtonProps {
   kind?: "primary" | "secondary";
+  disabled?: boolean;
 }
 
 export const Button = styled.button`
@@ -28,4 +29,12 @@ export const Button = styled.button`
       background-color: ${({ theme }) => theme.greyColor100};
       color: ${({ theme }) => theme.greyColor900};
     `};
+
+  ${({ disabled }: ButtonProps) =>
+    disabled === true &&
+    css`
+      background-color: ${({ theme }) => theme.greyColor100};
+      cursor: not-allowed;
+      color: ${({ theme }) => theme.greyColor500};
+    `}
 `;
