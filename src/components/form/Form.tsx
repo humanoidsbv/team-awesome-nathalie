@@ -20,8 +20,8 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
     const newTimeEntries = {
       client: newTimeEntry.client,
-      startTime: startTimestamp,
       endTime: endTimestamp,
+      startTime: startTimestamp,
     };
     onCreate(newTimeEntries);
     // setNewTimeEntry({});
@@ -39,16 +39,16 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
         minLength={2}
         name="client"
         onChange={handleChange}
-        value={newTimeEntry.client ?? ""}
         type="text"
+        value={newTimeEntry.client ?? ""}
       />
       <label htmlFor="activity">Activity</label>
       <input
         minLength={2}
         name="activity"
         onChange={handleChange}
-        value={newTimeEntry.activity ?? ""}
         type="text"
+        value={newTimeEntry.activity ?? ""}
       />
       <Styled.DateTimeInputWrapper>
         <Styled.DateInput>

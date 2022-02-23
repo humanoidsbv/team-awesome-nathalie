@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import { Button } from "../button/Button";
 
 import * as Styled from "./Subheader.styled";
@@ -7,16 +5,16 @@ import * as Styled from "./Subheader.styled";
 interface SubheaderProps {
   buttonLabel: string;
   onClick: () => void;
-  subTitle: string;
+  subtitle: string;
   title: string;
 }
 
-export const Subheader = ({ buttonLabel, onClick, subTitle, title }: SubheaderProps) => {
+export const Subheader = ({ buttonLabel, onClick, subtitle, title }: SubheaderProps) => {
   return (
     <Styled.Container>
       <Styled.TimesheetText>
         {title}
-        <Styled.EntryText>{subTitle}</Styled.EntryText>
+        <Styled.EntryText>{subtitle}</Styled.EntryText>
       </Styled.TimesheetText>
       <Styled.Button>
         <Button icon label={buttonLabel} {...{ onClick }} />

@@ -33,7 +33,7 @@ export const TimeEntries = () => {
       <Subheader
         buttonLabel="New time entry"
         onClick={() => setIsModalActive(true)}
-        subTitle="12 Entries"
+        subtitle="12 Entries"
         title="Timesheets"
       />
       <Modal

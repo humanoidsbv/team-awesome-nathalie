@@ -17,9 +17,10 @@ export const Modal = ({ children, isActive, onClose, title }: ModalProps) => {
     ? createPortal(
         <Styled.ModalContainer>
           <Styled.ModalContent role="dialog" aria-labelledby="dialog" aria-modal="true">
-            <span>
-              <h1>{title}</h1> <Close onClick={onClose} />
-            </span>
+            <Styled.Title>
+              <h1>{title}</h1>
+              <Close onClick={onClose} />
+            </Styled.Title>
             {children}
           </Styled.ModalContent>
         </Styled.ModalContainer>,

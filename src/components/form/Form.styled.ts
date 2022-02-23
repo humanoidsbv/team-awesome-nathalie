@@ -42,6 +42,7 @@ export const DateInput = styled.div`
 export const TimeInput = styled.div`
   display: flex;
   flex-direction: column;
+
   @media screen and (${({ theme }) => theme.breakpointDesktop}) {
     input {
       width: 80px;

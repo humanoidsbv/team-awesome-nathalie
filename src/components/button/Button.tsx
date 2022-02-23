@@ -4,9 +4,9 @@ import PlusIcon from "../../../public/icons/plus-icon.svg";
 
 interface ButtonProps {
   icon?: boolean;
+  kind?: "primary" | "secondary";
   label: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  kind?: "primary" | "secondary";
 }
 
 export const Button = ({ icon, label, onClick, kind }: ButtonProps) => {

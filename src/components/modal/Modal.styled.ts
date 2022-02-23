@@ -20,11 +20,6 @@ export const ModalContainer = styled.div`
     fill: #000;
   }
 
-  span {
-    display: flex;
-    justify-content: space-between;
-  }
-
   @media screen and (${({ theme }) => theme.breakpointDesktop}) {
     background-color: rgba(75, 84, 100, 0.8);
     height: 100vh;
@@ -32,8 +27,15 @@ export const ModalContainer = styled.div`
   }
 `;
 
+export const Title = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const ModalContent = styled.div`
   height: 100%;
+
   @media screen and (${({ theme }) => theme.breakpointDesktop}) {
     background: #fff;
     border-radius: 4px;
