@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 
 import * as Styled from "./Form.styled";
 
+import { addTimeEntry } from "../../services/post-time-entries";
+
 import { Button } from "../button/Button";
 
 interface FormProps {
@@ -11,24 +13,31 @@ interface FormProps {
 
 export const Form = ({ onClose, onCreate }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<TimeEntry>({});
-  const [IsFormValid, setIsFormValid] = useState(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [isValid, setIsValid] = useState(true);
+
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleBlur = (event) => {
     setIsValid(event.target.checkValidity());
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (
+    event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
     event.preventDefault();
+
     const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
     const newTimeEntries = {
+      activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: endTimestamp,
       startTime: startTimestamp,
     };
+
     onCreate(newTimeEntries);
+    addTimeEntry(newTimeEntries);
     onClose();
   };
 
@@ -108,7 +117,7 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
       </Styled.DateTimeInputWrapper>
       <Styled.Buttons>
         <Button label="Cancel" onClick={onClose} kind="secondary" />
-        <Button label="Add time entry" onClick={handleSubmit} disabled={!IsFormValid} />
+        <Button label="Add time entry" onClick={handleSubmit} disabled={!isFormValid} />
       </Styled.Buttons>
     </Styled.Form>
   );

@@ -33,8 +33,9 @@ export const Button = styled.button`
   ${({ disabled }: ButtonProps) =>
     disabled === true &&
     css`
-      background-color: ${({ theme }) => theme.greyColor100};
-      cursor: not-allowed;
+      background-color: ${({ theme }) => theme.greyColor300};
       color: ${({ theme }) => theme.greyColor500};
+      cursor: not-allowed;
+      pointer-events: none;
     `}
 `;

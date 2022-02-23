@@ -6,7 +6,7 @@ import { Subheader } from "../subheader/Subheader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
-import { getTimeEntries } from "../../api/time-entries-api";
+import { getTimeEntries } from "../../services/get-time-entries";
 
 import * as Types from "./TimeEntries.types";
 
@@ -53,7 +53,7 @@ export const TimeEntries = () => {
 
           return (
             <React.Fragment key={id}>
-              {renderHeader && <TimeEntriesHeader date={startTime} />}
+              {renderHeader && <TimeEntriesHeader dateString={startTime} />}
 
               <TimeEntry client={client} endTime={endTime} startTime={startTime} />
             </React.Fragment>

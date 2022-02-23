@@ -17,6 +17,7 @@ export const ModalContainer = styled.div`
   }
 
   svg {
+    cursor: pointer;
     fill: #000;
   }
 
