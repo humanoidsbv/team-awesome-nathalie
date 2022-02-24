@@ -14,7 +14,7 @@ interface CreateNewTimeEntryProps {
 }
 
 export const CreateNewTimeEntry = ({ onClose, onCreate }: CreateNewTimeEntryProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({});
+  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({} as Types.TimeEntry);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -24,9 +24,13 @@ export const CreateNewTimeEntry = ({ onClose, onCreate }: CreateNewTimeEntryProp
   ) => {
     event.preventDefault();
 
+    if (!isFormValid) {
+      return;
+    }
+
     const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
-    const newTimeEntryFormatted = {
+    const newTimeEntryFormatted: Types.TimeEntry = {
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: endTimestamp,
