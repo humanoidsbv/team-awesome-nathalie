@@ -6,6 +6,7 @@ export const Header = styled.header`
   flex-direction: column;
   position: fixed;
   width: 100vw;
+  z-index: 20;
 `;
 
 export const Container = styled.div`
@@ -19,6 +20,10 @@ export const Container = styled.div`
     color: #fff;
     text-decoration: none;
     white-space: nowrap;
+  }
+
+  svg {
+    fill: #fff;
   }
 
   @media screen and (${({ theme }) => theme.breakpointTablet}) {

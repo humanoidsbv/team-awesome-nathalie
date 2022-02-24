@@ -1,13 +1,13 @@
 import * as Styled from "../time-entries-header/TimeEntriesHeader.styled";
 
 interface TimeEntriesHeaderProps {
-  date: string;
+  dateString: string;
 }
 
-export const TimeEntriesHeader = ({ date }: TimeEntriesHeaderProps) => {
-  const dates = new Date(date);
+export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
+  const date = new Date(dateString);
 
-  const formattedDate = dates.toLocaleDateString("en-NL", {
+  const formattedDate = date.toLocaleDateString("en-NL", {
     weekday: "long",
     month: "numeric",
     day: "numeric",
