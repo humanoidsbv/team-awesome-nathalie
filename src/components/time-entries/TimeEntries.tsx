@@ -5,7 +5,11 @@ import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 
 import * as Types from "./TimeEntries.types";
 
-export const TimeEntries = (props) => {
+interface TimeEntriesProps {
+  timeEntries: Types.TimeEntry[];
+}
+
+export const TimeEntries = (props: TimeEntriesProps) => {
   const [timeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
 
   return (
