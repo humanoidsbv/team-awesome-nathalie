@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import * as Styled from "./Header.styled";
 
-import { Navigation } from "../navigation/";
+import { Navigation } from "../navigation/Navigation";
 
 import Close from "../../../public/icons/close.svg";
 import Hamburger from "../../../public/icons/hamburger.svg";

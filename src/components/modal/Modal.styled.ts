@@ -9,7 +9,7 @@ export const ModalContainer = styled.div`
   position: absolute;
   top: 0;
   width: 100vw;
-  z-index: 21;
+  z-index: 30;
 
   h1 {
     font-size: 18px;

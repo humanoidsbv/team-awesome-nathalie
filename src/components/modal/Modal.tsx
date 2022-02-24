@@ -13,18 +13,19 @@ interface ModalProps {
 }
 
 export const Modal = ({ children, isActive, onClose, title }: ModalProps) => {
-  return isActive
-    ? createPortal(
-        <Styled.ModalContainer>
-          <Styled.ModalContent role="dialog" aria-labelledby="dialog" aria-modal="true">
-            <Styled.Title>
-              <h1>{title}</h1>
-              <Close onClick={onClose} />
-            </Styled.Title>
-            {children}
-          </Styled.ModalContent>
-        </Styled.ModalContainer>,
-        document.body,
-      )
-    : null;
+  return (
+    isActive &&
+    createPortal(
+      <Styled.ModalContainer>
+        <Styled.ModalContent role="dialog" aria-labelledby="dialog" aria-modal="true">
+          <Styled.Title>
+            <h1>{title}</h1>
+            <Close onClick={onClose} />
+          </Styled.Title>
+          {children}
+        </Styled.ModalContent>
+      </Styled.ModalContainer>,
+      document.body,
+    )
+  );
 };

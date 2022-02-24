@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 interface ButtonProps {
-  kind?: "primary" | "secondary";
   disabled?: boolean;
+  kind?: "primary" | "secondary";
 }
 
 export const Button = styled.button<ButtonProps>`

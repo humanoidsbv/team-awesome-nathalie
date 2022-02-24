@@ -1,18 +1,19 @@
 import React, { useRef, useState } from "react";
 
-import * as Styled from "./Form.styled";
+import * as Styled from "./CreateNewTimeEntry.styled";
 
 import { addTimeEntry } from "../../services/post-time-entries";
 
 import { Button } from "../button/Button";
+
 import * as Types from "../time-entries/TimeEntries.types";
 
-interface FormProps {
+interface CreateNewTimeEntryProps {
   onClose: () => void;
-  onCreate: (entry: Types.TimeEntry) => void;
+  onCreate: (TimeEntries: Types.TimeEntry) => void;
 }
 
-export const Form = ({ onClose, onCreate }: FormProps) => {
+export const CreateNewTimeEntry = ({ onClose, onCreate }: CreateNewTimeEntryProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({});
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
@@ -25,15 +26,15 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
 
     const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
-    const newTimeEntries = {
+    const newTimeEntryFormatted = {
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: endTimestamp,
       startTime: startTimestamp,
     };
 
-    onCreate(newTimeEntries);
-    addTimeEntry(newTimeEntries);
+    onCreate(newTimeEntryFormatted);
+    addTimeEntry(newTimeEntryFormatted);
     onClose();
   };
 
@@ -43,7 +44,7 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
   };
 
   return (
-    <Styled.Form onSubmit={handleSubmit} ref={formRef}>
+    <Styled.CreateNewTimeEntry onSubmit={handleSubmit} ref={formRef}>
       <label htmlFor="client">Client</label>
       <input
         minLength={2}
@@ -104,6 +105,6 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
         <Button label="Cancel" onClick={onClose} kind="secondary" />
         <Button label="Add time entry" onClick={handleSubmit} disabled={!isFormValid} />
       </Styled.Buttons>
-    </Styled.Form>
+    </Styled.CreateNewTimeEntry>
   );
 };
