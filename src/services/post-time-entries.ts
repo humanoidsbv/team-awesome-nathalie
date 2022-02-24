@@ -1,6 +1,6 @@
 import * as Types from "../components/time-entries/TimeEntries.types";
 
-export const addTimeEntry = async (newTimeEntry) => {
+export const addTimeEntry = async (newTimeEntry: Types.TimeEntry) => {
   const response = await fetch("http://localhost:3004/time-entries", {
     method: "POST",
     headers: {
@@ -8,5 +8,6 @@ export const addTimeEntry = async (newTimeEntry) => {
     },
     body: JSON.stringify(newTimeEntry),
   });
+
   return response.json();
 };

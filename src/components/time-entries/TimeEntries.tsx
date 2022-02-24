@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import { Form } from "../form/Form";
 import { Modal } from "../modal/Modal";
+import { PageContainer } from "../page-container/PageContainer";
 import { Subheader } from "../subheader/Subheader";
-import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
-
-import { getTimeEntries } from "../../services/get-time-entries";
+import { TimeEntry } from "../time-entry/TimeEntry";
+import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
 
 import * as Types from "./TimeEntries.types";
 
-import { PageContainer } from "../page-container/PageContainer";
+interface TimeEntriesProps {
+  timeEntries: Types.TimeEntry[];
+}
 
-export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
+export const TimeEntries = (props: TimeEntriesProps) => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
   const [isModalActive, setIsModalActive] = useState(false);
 
-  function createTimeEntry(newTimeEntry) {
+  function createTimeEntry(newTimeEntry: Types.TimeEntry) {
     setTimeEntries([...timeEntries, newTimeEntry]);
   }
-
-  async function fetchTimeEntries() {
-    setTimeEntries(await getTimeEntries());
-  }
-
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
 
   return (
     <>
@@ -41,7 +34,7 @@ export const TimeEntries = () => {
         onClose={() => setIsModalActive(false)}
         title="New time entry"
       >
-        <Form onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
+        <NewTimeEntry onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
       </Modal>
       <PageContainer>
         {timeEntries.map(({ client, endTime, id, startTime }, i) => {

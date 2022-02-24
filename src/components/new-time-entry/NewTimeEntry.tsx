@@ -1,19 +1,19 @@
 import React, { useRef, useState } from "react";
 
-import * as Styled from "./Form.styled";
+import * as Styled from "./NewTimeEntry.styled";
 
 import { addTimeEntry } from "../../services/post-time-entries";
 
 import { Button } from "../button/Button";
 import * as Types from "../time-entries/TimeEntries.types";
 
-interface FormProps {
+interface NewTimeEntryProps {
   onClose: () => void;
-  onCreate: (entry: Types.TimeEntry) => void;
+  onCreate: (TimeEntries: Types.TimeEntry) => void;
 }
 
-export const Form = ({ onClose, onCreate }: FormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({});
+export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
+  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({} as Types.TimeEntry);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -30,6 +30,7 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
       client: newTimeEntry.client,
       endTime: endTimestamp,
       startTime: startTimestamp,
+      id: Math.random(),
     };
 
     onCreate(newTimeEntries);
@@ -43,7 +44,7 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
   };
 
   return (
-    <Styled.Form onSubmit={handleSubmit} ref={formRef}>
+    <Styled.NewTimeEntry onSubmit={handleSubmit} ref={formRef}>
       <label htmlFor="client">Client</label>
       <input
         minLength={2}
@@ -104,6 +105,6 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
         <Button label="Cancel" onClick={onClose} kind="secondary" />
         <Button label="Add time entry" onClick={handleSubmit} disabled={!isFormValid} />
       </Styled.Buttons>
-    </Styled.Form>
+    </Styled.NewTimeEntry>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
+export const CreateNewTimeEntry = styled.form`
   background-color: #fff;
   display: flex;
   flex-direction: column;
