@@ -16,8 +16,13 @@ export const Modal = ({ children, isActive, onClose, title }: ModalProps) => {
   return (
     isActive &&
     createPortal(
-      <Styled.ModalContainer>
-        <Styled.ModalContent role="dialog" aria-labelledby="dialog" aria-modal="true">
+      <Styled.ModalContainer onClick={onClose}>
+        <Styled.ModalContent
+          role="dialog"
+          aria-labelledby="dialog"
+          aria-modal="true"
+          onClick={(e) => e.stopPropagation()}
+        >
           <Styled.Title>
             <h1>{title}</h1>
             <Close onClick={onClose} />

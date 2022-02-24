@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import { CreateNewTimeEntry } from "../create-new-time-entry/CreateNewTimeEntry";
 import { Modal } from "../modal/Modal";
 import { PageContainer } from "../page-container/PageContainer";
 import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
+import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
 
 import * as Types from "./TimeEntries.types";
 
@@ -34,7 +34,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         onClose={() => setIsModalActive(false)}
         title="New time entry"
       >
-        <CreateNewTimeEntry onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
+        <NewTimeEntry onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
       </Modal>
       <PageContainer>
         {timeEntries.map(({ client, endTime, id, startTime }, i) => {

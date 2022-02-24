@@ -5,6 +5,7 @@ export const ModalContainer = styled.div`
   color: ${({ theme }) => theme.greyColor700};
   font-family: ${({ theme }) => theme.fontPrimary};
   height: 100vh;
+  cursor: pointer;
   padding: 30px 20px;
   position: absolute;
   top: 0;
