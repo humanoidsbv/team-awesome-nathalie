@@ -7,5 +7,5 @@ export const TimeEntriesHeader = styled.div`
   font-size: 18px;
   font-weight: 600;
   justify-content: space-between;
-  padding: 20px;
+  padding: 30px 20px 20px;
 `;

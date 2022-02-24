@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.nav`
   background-color: ${({ theme }) => theme.primaryColor500};

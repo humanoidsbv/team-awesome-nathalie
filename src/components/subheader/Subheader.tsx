@@ -1,15 +1,23 @@
-import * as Styled from "./Subheader.styled";
-
 import { Button } from "../button/Button";
 
-export const Subheader = () => {
+import * as Styled from "./Subheader.styled";
+
+interface SubheaderProps {
+  buttonLabel: string;
+  onClick: () => void;
+  subtitle: string;
+  title: string;
+}
+
+export const Subheader = ({ buttonLabel, onClick, subtitle, title }: SubheaderProps) => {
   return (
     <Styled.Container>
       <Styled.TimesheetText>
-        Timesheets<Styled.EntryText>12 Entries</Styled.EntryText>
+        {title}
+        <Styled.EntryText>{subtitle}</Styled.EntryText>
       </Styled.TimesheetText>
       <Styled.Button>
-        <Button label="New time entry" style="primary" icon />
+        <Button icon label={buttonLabel} {...{ onClick }} />
       </Styled.Button>
     </Styled.Container>
   );

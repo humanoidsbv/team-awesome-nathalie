@@ -7,6 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   font-family: ${({ theme }) => theme.fontPrimary};
   padding: 20px;
+  position: fixed;
+  top: 70px;
   width: 100%;
 
   @media screen and (${({ theme }) => theme.breakpointTablet}) {
@@ -48,4 +50,8 @@ export const Button = styled.div`
     flex-direction: column;
     margin: 0 auto;
   }
+`;
+
+export const ModalButtons = styled.div`
+  display: flex;
 `;

@@ -20,6 +20,31 @@
       "id": 3,
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
+    },
+    {
+      "client": "Humanoids",
+      "endTime": "2022-02-23T17:33:00.000Z",
+      "startTime": "2022-02-23T08:33:00.000Z",
+      "id": 6
+    },
+    {
+      "client": "Nationale Nederlanden",
+      "endTime": "2022-02-24T16:42:00.000Z",
+      "startTime": "2022-02-24T14:42:00.000Z",
+      "id": 7
+    },
+    {
+      "client": "Test",
+      "endTime": "2022-02-23T16:43:00.000Z",
+      "startTime": "2022-02-23T14:43:00.000Z",
+      "id": 8
+    },
+    {
+      "activity": "sdaf",
+      "client": "Koppert",
+      "endTime": "2022-02-03T15:02:00.000Z",
+      "startTime": "2022-02-03T15:02:00.000Z",
+      "id": 9
     }
   ]
 }
