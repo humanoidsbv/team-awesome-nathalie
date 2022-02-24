@@ -5,7 +5,7 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.secondaryColor};
   border-radius: 4px;
@@ -23,14 +23,14 @@ export const Button = styled.button`
     fill: #fff;
   }
 
-  ${({ kind }: ButtonProps) =>
+  ${({ kind }) =>
     kind === "secondary" &&
     css`
       background-color: ${({ theme }) => theme.greyColor100};
       color: ${({ theme }) => theme.greyColor900};
     `};
 
-  ${({ disabled }: ButtonProps) =>
+  ${({ disabled }) =>
     disabled === true &&
     css`
       background-color: ${({ theme }) => theme.greyColor300};

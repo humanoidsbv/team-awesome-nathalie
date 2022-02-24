@@ -5,22 +5,18 @@ import * as Styled from "./Form.styled";
 import { addTimeEntry } from "../../services/post-time-entries";
 
 import { Button } from "../button/Button";
+import * as Types from "../time-entries/TimeEntries.types";
 
 interface FormProps {
   onClose: () => void;
-  onCreate: ({}) => void;
+  onCreate: (entry: Types.TimeEntry) => void;
 }
 
 export const Form = ({ onClose, onCreate }: FormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<TimeEntry>({});
+  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({});
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-  const [isValid, setIsValid] = useState(true);
 
   const formRef = useRef<HTMLFormElement>(null);
-
-  const handleBlur = (event) => {
-    setIsValid(event.target.checkValidity());
-  };
 
   const handleSubmit = (
     event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -52,62 +48,51 @@ export const Form = ({ onClose, onCreate }: FormProps) => {
       <input
         minLength={2}
         name="client"
-        onBlur={handleBlur}
         onChange={handleChange}
         required
         type="text"
         value={newTimeEntry.client ?? ""}
       />
-      {!isValid && <span>This field is required! (min. 2 characters)</span>}
       <label htmlFor="activity">Activity</label>
       <input
         minLength={2}
         name="activity"
-        onBlur={handleBlur}
         onChange={handleChange}
         required
         type="text"
         value={newTimeEntry.activity ?? ""}
       />
-      {!isValid && <span>This field is required! (min. 2 characters)</span>}
-
       <Styled.DateTimeInputWrapper>
         <Styled.DateInput>
           <label htmlFor="date">Date</label>
           <input
             name="date"
-            onBlur={handleBlur}
             onChange={handleChange}
             required
             type="date"
             value={newTimeEntry.date ?? ""}
           />
-          {!isValid && <span>This field is required!</span>}
         </Styled.DateInput>
         <Styled.TimeInputWrapper>
           <Styled.TimeInput>
             <label htmlFor="startTime">From</label>
             <input
               name="startTime"
-              onBlur={handleBlur}
               onChange={handleChange}
               required
               type="time"
               value={newTimeEntry.startTime ?? ""}
             />
-            {!isValid && <span>This field is required!</span>}
           </Styled.TimeInput>
           <Styled.TimeInput>
             <label htmlFor="endTime">To</label>
             <input
               name="endTime"
-              onBlur={handleBlur}
               onChange={handleChange}
               required
               type="time"
               value={newTimeEntry.endTime ?? ""}
             />
-            {!isValid && <span>This field is required!</span>}
           </Styled.TimeInput>
           <Styled.TotalTime>
             Total
