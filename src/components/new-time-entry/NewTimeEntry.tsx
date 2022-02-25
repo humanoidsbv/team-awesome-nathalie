@@ -25,7 +25,7 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
 
     const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
-    const newTimeEntries = {
+    const newTimeEntryFormatted = {
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: endTimestamp,
@@ -33,8 +33,8 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
       id: Math.random(),
     };
 
-    onCreate(newTimeEntries);
-    addTimeEntry(newTimeEntries);
+    onCreate(newTimeEntryFormatted);
+    addTimeEntry(newTimeEntryFormatted);
     onClose();
   };
 

@@ -29,9 +29,10 @@ export const HoursWorked = styled.span`
   padding-top: 10px;
 `;
 
-export const DeleteButton = styled.div`
-  padding: 30px 15px;
+export const DeleteButton = styled.button`
+  background-color: #fff;
   border: 1px dashed transparent;
+  padding: 30px 15px;
 
   svg {
     fill: ${({ theme }) => theme.greyColor700};
