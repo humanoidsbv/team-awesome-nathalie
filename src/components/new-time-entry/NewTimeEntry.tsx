@@ -43,7 +43,6 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
 
     if (addedTimeEntry) {
       setTimeEntries([...timeEntries, addedTimeEntry]);
-      console.log(addedTimeEntry);
     }
 
     onClose();

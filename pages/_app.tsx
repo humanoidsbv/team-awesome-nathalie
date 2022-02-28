@@ -1,15 +1,16 @@
 import React from "react";
 
-import type { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
 
-import { StoreProvider } from "../src/components/store-provider/StoreProvider";
+import type { AppProps } from "next/app";
+import { theme } from "../styles/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <StoreProvider>
+      <ThemeProvider theme={theme}>
         <Component {...pageProps} />
-      </StoreProvider>
+      </ThemeProvider>
     </>
   );
 }

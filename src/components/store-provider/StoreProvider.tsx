@@ -7,10 +7,10 @@ interface StoreContextProps {
     timeEntries: Types.TimeEntry[],
     setTimeEntries: React.Dispatch<React.SetStateAction<Types.TimeEntry[]>>,
   ];
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-export const StoreContext = createContext<StoreContextProps>(null);
+export const StoreContext = createContext<StoreContextProps>({} as StoreContextProps);
 
 export function StoreProvider({ children }: StoreContextProps) {
   const store = {

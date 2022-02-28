@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { Modal } from "../modal/Modal";
 import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
@@ -9,14 +9,20 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as Types from "./TimeEntries.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
+import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
   timeEntries: Types.TimeEntry[];
 }
 
 export const TimeEntries = (props: TimeEntriesProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
+  const state = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = state.timeEntries;
   const [isModalActive, setIsModalActive] = useState(false);
+
+  useEffect(() => {
+    setTimeEntries(props.timeEntries);
+  }, []);
 
   const handleClick = (id: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));

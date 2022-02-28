@@ -27,27 +27,6 @@
       "endTime": "2022-03-01T13:43:00.000Z",
       "startTime": "2022-03-01T12:43:00.000Z",
       "id": 4
-    },
-    {
-      "activity": "testne",
-      "client": "testen",
-      "endTime": "2022-03-01T15:43:00.000Z",
-      "startTime": "2022-03-01T14:43:00.000Z",
-      "id": 6
-    },
-    {
-      "activity": "testtt",
-      "client": "testttt",
-      "endTime": "2022-02-16T15:46:00.000Z",
-      "startTime": "2022-02-16T14:46:00.000Z",
-      "id": 7
-    },
-    {
-      "activity": "testtttttt",
-      "client": "testttttt",
-      "endTime": "2022-02-28T15:49:00.000Z",
-      "startTime": "2022-02-28T14:49:00.000Z",
-      "id": 8
     }
   ]
 }
