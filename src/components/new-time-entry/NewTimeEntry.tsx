@@ -23,6 +23,10 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
   ) => {
     event.preventDefault();
 
+    if (!isFormValid) {
+      return;
+    }
+
     const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
 
