@@ -5,9 +5,9 @@ import DeleteIcon from "../../../public/icons/delete-icon.svg";
 interface TimeEntryProps {
   client: string;
   endTime: string;
+  handleClick: (id: number) => void;
   id: number;
   startTime: string;
-  handleClick: (id: number) => void;
 }
 
 export const TimeEntry = ({ client, endTime, handleClick, id, startTime }: TimeEntryProps) => {

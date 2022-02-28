@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 
 import * as Styled from "./NewTimeEntry.styled";
+import * as Types from "../time-entries/TimeEntries.types";
 
 import { addTimeEntry } from "../../services/post-time-entries";
 
 import { Button } from "../button/Button";
-import * as Types from "../time-entries/TimeEntries.types";
 
 interface NewTimeEntryProps {
   onClose: () => void;
@@ -29,8 +29,8 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: endTimestamp,
-      startTime: startTimestamp,
       id: Math.random(),
+      startTime: startTimestamp,
     };
 
     onCreate(newTimeEntryFormatted);
