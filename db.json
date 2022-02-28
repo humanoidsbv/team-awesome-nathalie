@@ -34,19 +34,6 @@
       "id": 7
     },
     {
-      "client": "Test",
-      "endTime": "2022-02-23T16:43:00.000Z",
-      "startTime": "2022-02-23T14:43:00.000Z",
-      "id": 8
-    },
-    {
-      "activity": "sad",
-      "client": "asd",
-      "endTime": "2022-02-02T17:04:00.000Z",
-      "startTime": "2022-02-02T17:04:00.000Z",
-      "id": 9
-    },
-    {
       "activity": "leuke activity",
       "client": "Leuke client",
       "endTime": "2022-02-04T17:07:00.000Z",
