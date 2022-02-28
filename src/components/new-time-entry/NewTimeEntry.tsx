@@ -40,7 +40,7 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
     const addedTimeEntry = await addTimeEntry(newTimeEntryFormatted);
 
     if (addedTimeEntry) {
-      onCreate(newTimeEntryFormatted);
+      onCreate(addedTimeEntry);
     }
 
     onClose();

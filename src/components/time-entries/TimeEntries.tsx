@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import { Modal } from "../modal/Modal";
-import { PageContainer } from "../page-container/PageContainer";
 import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
+import { PageContainer } from "../page-container/PageContainer";
 import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";

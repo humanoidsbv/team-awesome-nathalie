@@ -18,5 +18,3 @@ export const Button = ({ disabled, icon, label, onClick, kind }: ButtonProps) =>
     </Styled.Button>
   );
 };
-
-//test
