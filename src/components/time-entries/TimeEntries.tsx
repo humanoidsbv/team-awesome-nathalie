@@ -2,12 +2,13 @@ import React, { useState } from "react";
 
 import { Modal } from "../modal/Modal";
 import { PageContainer } from "../page-container/PageContainer";
+import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
 import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
-import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
 
 import * as Types from "./TimeEntries.types";
+import { removeTimeEntry } from "../../services/delete-time-entries";
 
 interface TimeEntriesProps {
   timeEntries: Types.TimeEntry[];
@@ -20,6 +21,11 @@ export const TimeEntries = (props: TimeEntriesProps) => {
   function createTimeEntry(newTimeEntry: Types.TimeEntry) {
     setTimeEntries([...timeEntries, newTimeEntry]);
   }
+
+  const handleClick = (id: number) => {
+    setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
+    removeTimeEntry(id);
+  };
 
   return (
     <>
@@ -48,7 +54,13 @@ export const TimeEntries = (props: TimeEntriesProps) => {
             <React.Fragment key={id}>
               {renderHeader && <TimeEntriesHeader dateString={startTime} />}
 
-              <TimeEntry client={client} endTime={endTime} startTime={startTime} />
+              <TimeEntry
+                client={client}
+                endTime={endTime}
+                id={id}
+                startTime={startTime}
+                handleClick={handleClick}
+              />
             </React.Fragment>
           );
         })}
