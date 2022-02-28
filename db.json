@@ -22,23 +22,11 @@
       "activity": "Development"
     },
     {
-      "client": "Humanoids",
-      "endTime": "2022-02-23T17:33:00.000Z",
-      "startTime": "2022-02-23T08:33:00.000Z",
-      "id": 6
-    },
-    {
-      "client": "Nationale Nederlanden",
-      "endTime": "2022-02-24T16:42:00.000Z",
-      "startTime": "2022-02-24T14:42:00.000Z",
-      "id": 7
-    },
-    {
-      "activity": "leuke activity",
-      "client": "Leuke client",
-      "endTime": "2022-02-04T17:07:00.000Z",
-      "startTime": "2022-02-04T17:07:00.000Z",
-      "id": 0.7285378016165416
+      "activity": "test",
+      "client": "test",
+      "endTime": "2022-03-01T13:43:00.000Z",
+      "startTime": "2022-03-01T12:43:00.000Z",
+      "id": 4
     }
   ]
 }

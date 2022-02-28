@@ -18,28 +18,32 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (
+  const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     event.preventDefault();
 
     const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
     const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
+
     const newTimeEntryFormatted = {
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: endTimestamp,
-      id: Math.random(),
       startTime: startTimestamp,
     };
 
-    onCreate(newTimeEntryFormatted);
-    addTimeEntry(newTimeEntryFormatted);
+    const addedTimeEntry = await addTimeEntry(newTimeEntryFormatted);
+
+    if (addedTimeEntry) {
+      onCreate(newTimeEntryFormatted);
+    }
+
     onClose();
   };
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFormValid(formRef.current?.checkValidity());
+    setIsFormValid(formRef.current?.checkValidity() || false);
     setNewTimeEntry({ ...newTimeEntry, [target.name]: target.value });
   };
 
