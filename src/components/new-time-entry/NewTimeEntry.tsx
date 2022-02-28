@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import * as Styled from "./NewTimeEntry.styled";
 import * as Types from "../time-entries/TimeEntries.types";
@@ -6,13 +6,15 @@ import * as Types from "../time-entries/TimeEntries.types";
 import { addTimeEntry } from "../../services/post-time-entries";
 
 import { Button } from "../button/Button";
+import { StoreContext } from "../store-provider/StoreProvider";
 
 interface NewTimeEntryProps {
   onClose: () => void;
-  onCreate: (TimeEntries: Types.TimeEntry) => void;
 }
 
-export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
+export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
+  const state = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = state.timeEntries;
   const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({} as Types.TimeEntry);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
@@ -40,7 +42,8 @@ export const NewTimeEntry = ({ onClose, onCreate }: NewTimeEntryProps) => {
     const addedTimeEntry = await addTimeEntry(newTimeEntryFormatted);
 
     if (addedTimeEntry) {
-      onCreate(addedTimeEntry);
+      setTimeEntries([...timeEntries, addedTimeEntry]);
+      console.log(addedTimeEntry);
     }
 
     onClose();

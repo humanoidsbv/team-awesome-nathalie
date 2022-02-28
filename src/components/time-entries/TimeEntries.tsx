@@ -18,10 +18,6 @@ export const TimeEntries = (props: TimeEntriesProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
   const [isModalActive, setIsModalActive] = useState(false);
 
-  function createTimeEntry(newTimeEntry: Types.TimeEntry) {
-    setTimeEntries([...timeEntries, newTimeEntry]);
-  }
-
   const handleClick = (id: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
     removeTimeEntry(id);
@@ -40,7 +36,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         onClose={() => setIsModalActive(false)}
         title="New time entry"
       >
-        <NewTimeEntry onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
+        <NewTimeEntry onClose={() => setIsModalActive(false)} />
       </Modal>
       <PageContainer>
         {timeEntries.map(({ client, endTime, id, startTime }, i) => {
