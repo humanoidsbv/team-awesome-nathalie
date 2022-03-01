@@ -6,7 +6,14 @@ import { PageContainer } from "../page-container/PageContainer.styled";
 import { Subheader } from "../subheader/Subheader";
 import { TeamMember } from "../team-member/TeamMember";
 
-export const TeamMembersComponent = () => {
+import * as Types from "../../types/TeamMembers.types";
+
+interface TeamMembersComponentProps {
+  teamMembers: Types.TeamMembers;
+}
+
+export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
+  const [teamMembers, setTeamMembers] = useState(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
 
   return (
@@ -21,7 +28,15 @@ export const TeamMembersComponent = () => {
         <NewTeamMember />
       </Modal>
       <PageContainer>
-        <TeamMember />
+        {teamMembers.map((teamMember: Types.TeamMembers) => (
+          <TeamMember
+            employer={teamMember.employer}
+            firstName={teamMember.firstName}
+            lastName={teamMember.lastName}
+            role={teamMember.role}
+            startingDate={teamMember.startingDate}
+          />
+        ))}
       </PageContainer>
     </>
   );

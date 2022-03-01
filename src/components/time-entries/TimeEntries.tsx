@@ -7,7 +7,7 @@ import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 
-import * as Types from "./TimeEntries.types";
+import * as Types from "../../types/TimeEntries.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
 import { StoreContext } from "../store-provider/StoreProvider";
 

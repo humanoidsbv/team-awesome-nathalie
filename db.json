@@ -21,5 +21,32 @@
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
     }
+  ],
+
+  "team-members": [
+    {
+      "employer": "Koppert",
+      "firstName": "Amijs",
+      "id": 1,
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startingDate": "February 2018"
+    },
+    {
+      "employer": "Koppert",
+      "firstName": "Amijs",
+      "id": 2,
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startingDate": "February 2018"
+    },
+    {
+      "employer": "Koppert",
+      "firstName": "Amijs",
+      "id": 3,
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startingDate": "February 2018"
+    }
   ]
 }

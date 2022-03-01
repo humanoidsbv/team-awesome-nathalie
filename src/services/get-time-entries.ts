@@ -1,4 +1,4 @@
-import * as Types from "../components/time-entries/TimeEntries.types";
+import * as Types from "../types/TimeEntries.types";
 import { NotFoundError } from "../error/not-found-error";
 
 export async function getTimeEntries(): Promise<Types.TimeEntry[]> {
