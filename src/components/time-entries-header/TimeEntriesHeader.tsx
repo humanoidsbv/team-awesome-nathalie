@@ -25,19 +25,15 @@ export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
   };
 
   const getDurationByDay = (isoDate: string, timeEntries) => {
-    const calculateDuration = ({ endTimestamp, startTimestamp }) => {
-      return new Date(endTimestamp) - new Date(startTimestamp);
+    const calculateDuration = ({ endTime, startTime }) => {
+      return new Date(endTime) - new Date(startTime);
     };
 
-    const duration = new Date(
-      timeEntries
-        .filter(
-          ({ startTimestamp }) =>
-            new Date(startTimestamp).toDateString() === new Date(isoDate).toDateString(),
-        )
-        .reduce((acc, timeEntry) => acc + calculateDuration(timeEntry), 0),
-    );
-
+    const duration = timeEntries
+      .filter(
+        ({ startTime }) => new Date(startTime).toDateString() === new Date(isoDate).toDateString(),
+      )
+      .reduce((acc, timeEntry) => acc + calculateDuration(timeEntry), 0);
     return formatDuration(duration);
   };
 
