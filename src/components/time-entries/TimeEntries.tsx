@@ -24,7 +24,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     setTimeEntries(props.timeEntries);
   }, []);
 
-  const handleClick = (id: number) => {
+  const handleClick = (id?: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
     removeTimeEntry(id);
   };

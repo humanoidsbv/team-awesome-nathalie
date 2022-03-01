@@ -16,7 +16,7 @@ export const Header = () => {
     <Styled.Header>
       <Styled.Container>
         <Styled.Wrapper>
-          <a href="#">team awesome</a>
+          <a href="/">team awesome</a>
           <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
         </Styled.Wrapper>
         <Navigation {...{ isActive }} />

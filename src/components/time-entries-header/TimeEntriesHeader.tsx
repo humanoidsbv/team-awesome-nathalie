@@ -19,7 +19,7 @@ export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
     day: "numeric",
   });
 
-  const formatDuration = (duration) => {
+  const formatDuration = (duration: number) => {
     const hours = Number.parseInt(duration / 1000 / 60 / 60).toString();
     const minutes = Number.parseInt((duration / 1000 / 60) % 60).toString();
     return `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
