@@ -1,11 +1,9 @@
 import React from "react";
 
-import { ThemeProvider } from "styled-components";
-
 import GlobalStyle from "../styles/global";
-import { theme } from "../styles/theme";
 
 import { Header } from "../src/components/header/Header";
+import { StoreProvider } from "../src/components/store-provider/StoreProvider";
 import { TimeEntries } from "../src/components/time-entries/TimeEntries";
 
 import { getTimeEntries } from "../src/services/get-time-entries";
@@ -39,10 +37,10 @@ const Homepage = ({ timeEntries }: homepageProps) => {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <StoreProvider>
         <Header />
         <TimeEntries timeEntries={timeEntries} />
-      </ThemeProvider>
+      </StoreProvider>
     </>
   );
 };

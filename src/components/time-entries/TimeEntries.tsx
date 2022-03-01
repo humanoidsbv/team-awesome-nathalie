@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { Modal } from "../modal/Modal";
-import { PageContainer } from "../page-container/PageContainer";
 import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
+import { PageContainer } from "../page-container/PageContainer";
 import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as Types from "./TimeEntries.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
+import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
   timeEntries: Types.TimeEntry[];
 }
 
 export const TimeEntries = (props: TimeEntriesProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
+  const state = useContext(StoreContext);
+  const [timeEntries, setTimeEntries] = state.timeEntries;
   const [isModalActive, setIsModalActive] = useState(false);
 
-  function createTimeEntry(newTimeEntry: Types.TimeEntry) {
-    setTimeEntries([...timeEntries, newTimeEntry]);
-  }
+  useEffect(() => {
+    setTimeEntries(props.timeEntries);
+  }, []);
 
   const handleClick = (id: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
@@ -40,7 +42,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         onClose={() => setIsModalActive(false)}
         title="New time entry"
       >
-        <NewTimeEntry onClose={() => setIsModalActive(false)} onCreate={createTimeEntry} />
+        <NewTimeEntry onClose={() => setIsModalActive(false)} />
       </Modal>
       <PageContainer>
         {timeEntries.map(({ client, endTime, id, startTime }, i) => {
