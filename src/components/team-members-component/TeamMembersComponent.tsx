@@ -16,6 +16,10 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
   const [teamMembers, setTeamMembers] = useState(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
 
+  const createTeamMembers = (newTeamMember) => {
+    setTeamMembers([...teamMembers, newTeamMember]);
+  };
+
   return (
     <>
       <Subheader
@@ -25,18 +29,20 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
         onClick={() => setIsModalActive(true)}
       />
       <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)} title="New Humanoid">
-        <NewTeamMember />
+        <NewTeamMember onCreate={createTeamMembers} />
       </Modal>
       <PageContainer>
-        {teamMembers.map((teamMember: Types.TeamMembers) => (
-          <TeamMember
-            employer={teamMember.employer}
-            firstName={teamMember.firstName}
-            lastName={teamMember.lastName}
-            role={teamMember.role}
-            startingDate={teamMember.startingDate}
-          />
-        ))}
+        {teamMembers.map(
+          ({ employer, firstName, lastName, role, startingDate }: Types.TeamMembers) => (
+            <TeamMember
+              employer={employer}
+              firstName={firstName}
+              lastName={lastName}
+              role={role}
+              startingDate={startingDate}
+            />
+          ),
+        )}
       </PageContainer>
     </>
   );

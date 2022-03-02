@@ -9,7 +9,7 @@ import { TimeEntries } from "../src/components/time-entries/TimeEntries";
 import { getTimeEntries } from "../src/services/get-time-entries";
 import { NotFoundError } from "../src/error/not-found-error";
 
-import * as Types from "../src/components/time-entries/TimeEntries.types";
+import * as Types from "../src/types/TimeEntries.types";
 
 interface homepageProps {
   timeEntries: Types.TimeEntry[];

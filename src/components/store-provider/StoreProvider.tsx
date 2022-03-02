@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-import * as Types from "../time-entries/TimeEntries.types";
+import * as Types from "../../types/TimeEntries.types";
 
 interface StoreContextProps {
   timeEntries: [

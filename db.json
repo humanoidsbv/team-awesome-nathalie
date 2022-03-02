@@ -22,31 +22,46 @@
       "activity": "Development"
     }
   ],
-
   "team-members": [
     {
+      "email": "amijs.breunesse@humanoids.nl",
       "employer": "Koppert",
       "firstName": "Amijs",
       "id": 1,
+      "label": "Een stukje tekst",
       "lastName": "Breunesse",
       "role": "Front-end Developer",
       "startingDate": "February 2018"
     },
     {
+      "email": "amijs.breunesse@humanoids.nl",
       "employer": "Koppert",
       "firstName": "Amijs",
       "id": 2,
+      "label": "Een stukje tekst",
       "lastName": "Breunesse",
       "role": "Front-end Developer",
       "startingDate": "February 2018"
     },
     {
+      "email": "amijs.breunesse@humanoids.nl",
       "employer": "Koppert",
       "firstName": "Amijs",
       "id": 3,
+      "label": "Een stukje tekst",
       "lastName": "Breunesse",
       "role": "Front-end Developer",
       "startingDate": "February 2018"
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test",
+      "label": "test",
+      "employer": "test",
+      "role": "test",
+      "startingDate": "test",
+      "id": 4
     }
   ]
 }
