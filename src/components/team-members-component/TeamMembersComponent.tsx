@@ -9,11 +9,11 @@ import { TeamMember } from "../team-member/TeamMember";
 import * as Types from "../../types/TeamMembers.types";
 
 interface TeamMembersComponentProps {
-  teamMembers: Types.TeamMembers;
+  teamMembers: Types.TeamMember;
 }
 
 export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
-  const [teamMembers, setTeamMembers] = useState(props.teamMembers);
+  const [teamMembers, setTeamMembers] = useState<Types.TeamMember[]>(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
 
   const createTeamMembers = (newTeamMember) => {
@@ -24,7 +24,7 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
     <>
       <Subheader
         buttonLabel="New Humanoid"
-        subtitle="22 Humanoids"
+        subtitle={`${teamMembers.length} Humanoids`}
         title="Team members"
         onClick={() => setIsModalActive(true)}
       />
@@ -33,14 +33,8 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
       </Modal>
       <PageContainer>
         {teamMembers.map(
-          ({ employer, firstName, lastName, role, startingDate }: Types.TeamMembers) => (
-            <TeamMember
-              employer={employer}
-              firstName={firstName}
-              lastName={lastName}
-              role={role}
-              startingDate={startingDate}
-            />
+          ({ client, firstName, lastName, role, startingDate }: Types.TeamMember) => (
+            <TeamMember {...{ client, firstName, lastName, role, startingDate }} />
           ),
         )}
       </PageContainer>

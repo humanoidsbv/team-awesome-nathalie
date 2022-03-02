@@ -20,12 +20,19 @@
       "id": 3,
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
+    },
+    {
+      "activity": "test",
+      "client": "test",
+      "endTime": "2022-03-03T16:14:00.000Z",
+      "startTime": "2022-03-03T14:14:00.000Z",
+      "id": 4
     }
   ],
   "team-members": [
     {
-      "email": "amijs.breunesse@humanoids.nl",
-      "employer": "Koppert",
+      "emailAddress": "amijs.breunesse@humanoids.nl",
+      "client": "Koppert",
       "firstName": "Amijs",
       "id": 1,
       "label": "Een stukje tekst",
@@ -34,8 +41,8 @@
       "startingDate": "February 2018"
     },
     {
-      "email": "amijs.breunesse@humanoids.nl",
-      "employer": "Koppert",
+      "emailAddress": "amijs.breunesse@humanoids.nl",
+      "client": "Koppert",
       "firstName": "Amijs",
       "id": 2,
       "label": "Een stukje tekst",
@@ -44,8 +51,8 @@
       "startingDate": "February 2018"
     },
     {
-      "email": "amijs.breunesse@humanoids.nl",
-      "employer": "Koppert",
+      "emailAddress": "amijs.breunesse@humanoids.nl",
+      "client": "Koppert",
       "firstName": "Amijs",
       "id": 3,
       "label": "Een stukje tekst",
@@ -56,9 +63,9 @@
     {
       "firstName": "test",
       "lastName": "test",
-      "email": "test",
+      "emailAddress": "test",
       "label": "test",
-      "employer": "test",
+      "client": "test",
       "role": "test",
       "startingDate": "test",
       "id": 4

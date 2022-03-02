@@ -1,6 +1,6 @@
-export interface TeamMembers {
-  email?: string;
-  employer: string;
+export interface TeamMember {
+  client: string;
+  emailAddress?: string;
   firstName: string;
   label?: string;
   lastName: string;

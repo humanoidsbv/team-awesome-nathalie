@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const TeamMemberContainer = styled.div`
   background-color: #fff;
-
   border: 1px solid ${({ theme }) => theme.greyColor300};
   border-left: 4px solid #4f88ef;
   border-radius: 4px;

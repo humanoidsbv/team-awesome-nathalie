@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { StoreContext } from "../store-provider/StoreProvider";
 
 import * as Styled from "../time-entries-header/TimeEntriesHeader.styled";
-import * as Types from "../../types/TimeEntries.types";
+import * as Types from "../../types/TimeEntry.types";
 
 interface TimeEntriesHeaderProps {
   dateString: string;

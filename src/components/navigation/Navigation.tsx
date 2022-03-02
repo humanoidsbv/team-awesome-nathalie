@@ -9,25 +9,25 @@ interface NavigationProps {
 export const Navigation = ({ isActive }: NavigationProps) => {
   return (
     <Styled.Container>
-      <Styled.Menu isActive={isActive}>
+      <Styled.Menu {...{ isActive }}>
         <li>
-          <Link href="/">
-            <a>Timesheets</a>
+          <Link href="/" passHref>
+            <Styled.Link>Timesheets</Styled.Link>
           </Link>
         </li>
         <li>
-          <Link href="/team-members">
-            <a>Team members</a>
+          <Link href="/team-members" passHref>
+            <Styled.Link>Team members</Styled.Link>
           </Link>
         </li>
         <li>
-          <a>Projects</a>
+          <Styled.Link>Projects</Styled.Link>
         </li>
         <li>
-          <a>Clients</a>
+          <Styled.Link>Clients</Styled.Link>
         </li>
         <li>
-          <a>Documents</a>
+          <Styled.Link>Documents</Styled.Link>
         </li>
       </Styled.Menu>
     </Styled.Container>

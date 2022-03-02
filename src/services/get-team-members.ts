@@ -1,10 +1,19 @@
 import * as Types from "../types/TeamMembers.types";
 
-export async function getTeamMembers(): Promise<Types.TeamMembers[]> {
-  const response = await fetch("http://localhost:3004/team-members/", {
+import { NotFoundError } from "../error/not-found-error";
+
+export async function getTeamMembers(): Promise<Types.TeamMember[]> {
+  return fetch("http://localhost:3004/team-members", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
-  });
+  })
+    .then((response) => {
+      if (response.status === 404) {
+        throw new NotFoundError(response);
+      }
 
-  return response.json();
+      return response;
+    })
+    .then((response) => response.json())
+    .catch((error) => error);
 }

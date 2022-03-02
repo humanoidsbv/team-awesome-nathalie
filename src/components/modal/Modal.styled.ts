@@ -30,7 +30,7 @@ export const ModalContainer = styled.div`
   }
 `;
 
-export const Title = styled.div`
+export const TitleBar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -2,12 +2,12 @@ import * as Styled from "./TeamMember.styled";
 import * as Types from "../../types/TeamMembers.types";
 
 export const TeamMember = ({
-  employer,
+  client,
   firstName,
   lastName,
   role,
   startingDate,
-}: Types.TeamMembers) => {
+}: Types.TeamMember) => {
   return (
     <Styled.TeamMemberContainer>
       <Styled.TeamMember>
@@ -19,7 +19,7 @@ export const TeamMember = ({
       </Styled.TeamMember>
       <Styled.WorkInfo>
         <Styled.Text>
-          {employer} <p>Employer</p>
+          {client} <p>client</p>
         </Styled.Text>
         <Styled.Text>
           {startingDate} <p>Starting date</p>

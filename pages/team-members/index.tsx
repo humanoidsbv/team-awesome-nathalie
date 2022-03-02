@@ -8,7 +8,7 @@ import { NotFoundError } from "../../src/error/not-found-error";
 import * as Types from "../../src/types/TeamMembers.types";
 
 interface teamMemberProps {
-  teamMembers: Types.TeamMembers[];
+  teamMembers: Types.TeamMember[];
 }
 
 export const getServerSideProps = async () => {

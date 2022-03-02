@@ -7,7 +7,8 @@ import { Button } from "../button/Button";
 import { addTeamMember } from "../../services/post-team-members";
 
 export const NewTeamMember = ({ onCreate }) => {
-  const [newTeamMember, setNewTeamMember] = useState<Types.TeamMembers>({} as Types.TeamMembers);
+  const [newTeamMember, setNewTeamMember] = useState<Types.TeamMember>({} as Types.TeamMember);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -47,18 +48,23 @@ export const NewTeamMember = ({ onCreate }) => {
             />
           </div>
         </Styled.Small>
-        <label htmlFor="email">E-mail address</label>
-        <input name="email" onChange={handleChange} type="text" value={newTeamMember.email ?? ""} />
+        <label htmlFor="emailAddress">E-mail address</label>
+        <input
+          name="emailAddress"
+          onChange={handleChange}
+          type="text"
+          value={newTeamMember.emailAddress ?? ""}
+        />
 
         <label htmlFor="label">Label</label>
         <input name="label" onChange={handleChange} type="text" value={newTeamMember.label ?? ""} />
 
-        <label htmlFor="employer">Employer</label>
+        <label htmlFor="client">Client</label>
         <input
-          name="employer"
+          name="client"
           onChange={handleChange}
           type="text"
-          value={newTeamMember.employer ?? ""}
+          value={newTeamMember.client ?? ""}
         />
         <Styled.Small>
           <div>
