@@ -24,8 +24,50 @@
     {
       "activity": "test",
       "client": "test",
-      "endTime": "2022-03-01T13:43:00.000Z",
-      "startTime": "2022-03-01T12:43:00.000Z",
+      "endTime": "2022-03-03T16:14:00.000Z",
+      "startTime": "2022-03-03T14:14:00.000Z",
+      "id": 4
+    }
+  ],
+  "team-members": [
+    {
+      "emailAddress": "amijs.breunesse@humanoids.nl",
+      "client": "Koppert",
+      "firstName": "Amijs",
+      "id": 1,
+      "label": "Een stukje tekst",
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startingDate": "February 2018"
+    },
+    {
+      "emailAddress": "amijs.breunesse@humanoids.nl",
+      "client": "Koppert",
+      "firstName": "Amijs",
+      "id": 2,
+      "label": "Een stukje tekst",
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startingDate": "February 2018"
+    },
+    {
+      "emailAddress": "amijs.breunesse@humanoids.nl",
+      "client": "Koppert",
+      "firstName": "Amijs",
+      "id": 3,
+      "label": "Een stukje tekst",
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startingDate": "February 2018"
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "emailAddress": "test",
+      "label": "test",
+      "client": "test",
+      "role": "test",
+      "startingDate": "test",
       "id": 4
     }
   ]

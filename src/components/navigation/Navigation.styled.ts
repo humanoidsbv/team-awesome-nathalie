@@ -24,18 +24,6 @@ export const Menu = styled.ul<{ isActive: boolean }>`
     padding: 20px;
   }
 
-  a {
-    color: #fff;
-    padding: 3px 10px;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  a:hover {
-    background-color: ${({ theme }) => theme.primaryColor700};
-    padding: 3px 10px;
-  }
-
   @media screen and (${({ theme }) => theme.breakpointTablet}) {
     display: flex;
     font-size: 14px;
@@ -44,5 +32,16 @@ export const Menu = styled.ul<{ isActive: boolean }>`
     li {
       display: inline;
     }
+  }
+`;
+
+export const Link = styled.a<{ activeLink?: boolean }>`
+  padding: 3px 10px;
+  text-align: center;
+
+  :hover {
+    background-color: ${({ theme }) => theme.primaryColor700};
+    cursor: pointer;
+    padding: 3px 10px;
   }
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const TimeEntry = styled.div`
   align-items: center;
+  background-color: #fff;
   border: 1px solid ${({ theme }) => theme.greyColor300};
   border-left: 4px solid ${({ theme }) => theme.primaryColor500};
   border-radius: 4px;

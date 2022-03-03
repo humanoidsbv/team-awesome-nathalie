@@ -14,7 +14,7 @@ export const Subheader = ({ buttonLabel, onClick, subtitle, title }: SubheaderPr
     <Styled.Container>
       <Styled.TimesheetText>
         {title}
-        <Styled.EntryText>{subtitle}</Styled.EntryText>
+        <Styled.EntryText>{subtitle} </Styled.EntryText>
       </Styled.TimesheetText>
       <Styled.Button>
         <Button icon label={buttonLabel} {...{ onClick }} />

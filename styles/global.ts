@@ -7,6 +7,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+ body {
+   background-color: #F5F7F9;
+ }
+
   @font-face {
     font-family: Bello;
     src: url("fonts/bello-script.ttf");

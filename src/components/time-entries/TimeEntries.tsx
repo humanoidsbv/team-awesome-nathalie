@@ -7,7 +7,7 @@ import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 
-import * as Types from "./TimeEntries.types";
+import * as Types from "../../types/TimeEntry.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
 import { StoreContext } from "../store-provider/StoreProvider";
 
@@ -24,7 +24,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     setTimeEntries(props.timeEntries);
   }, []);
 
-  const handleClick = (id: number) => {
+  const handleClick = (id?: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
     removeTimeEntry(id);
   };
@@ -34,7 +34,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
       <Subheader
         buttonLabel="New time entry"
         onClick={() => setIsModalActive(true)}
-        subtitle="12 Entries"
+        subtitle={`${timeEntries.length} Entries`}
         title="Timesheets"
       />
       <Modal
@@ -56,13 +56,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
             <React.Fragment key={id}>
               {renderHeader && <TimeEntriesHeader dateString={startTime} />}
 
-              <TimeEntry
-                client={client}
-                endTime={endTime}
-                id={id}
-                startTime={startTime}
-                handleClick={handleClick}
-              />
+              <TimeEntry {...{ client, endTime, id, startTime, handleClick }} />
             </React.Fragment>
           );
         })}

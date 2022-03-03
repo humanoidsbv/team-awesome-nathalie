@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 
 import * as Styled from "./Header.styled";
 
@@ -10,13 +11,16 @@ import Logo from "../../../public/img/humanoids-logo.svg";
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
+
   const handleClick = () => setIsActive(!isActive);
 
   return (
     <Styled.Header>
       <Styled.Container>
         <Styled.Wrapper>
-          <a href="#">team awesome</a>
+          <Link href="/">
+            <a>team awesome</a>
+          </Link>
           <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
         </Styled.Wrapper>
         <Navigation {...{ isActive }} />

@@ -5,12 +5,12 @@ import DeleteIcon from "../../../public/icons/delete-icon.svg";
 interface TimeEntryProps {
   client: string;
   endTime: string;
-  handleClick: (id: number) => void;
-  id: number;
+  id?: number;
   startTime: string;
+  handleClick: (id?: number) => void;
 }
 
-export const TimeEntry = ({ client, endTime, handleClick, id, startTime }: TimeEntryProps) => {
+export const TimeEntry = ({ client, endTime, id, startTime, handleClick }: TimeEntryProps) => {
   const timeFormat: Intl.DateTimeFormatOptions = {
     hour: "2-digit",
     minute: "2-digit",

@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 
 import * as Styled from "./NewTimeEntry.styled";
-import * as Types from "../time-entries/TimeEntries.types";
+import * as Types from "../../types/TimeEntry.types";
 
 import { addTimeEntry } from "../../services/post-time-entries";
 

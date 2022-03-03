@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import * as Styled from "./Navigation.styled";
 
 interface NavigationProps {
@@ -7,21 +9,25 @@ interface NavigationProps {
 export const Navigation = ({ isActive }: NavigationProps) => {
   return (
     <Styled.Container>
-      <Styled.Menu isActive={isActive}>
+      <Styled.Menu {...{ isActive }}>
         <li>
-          <a href="#">Timesheets</a>
+          <Link href="/" passHref>
+            <Styled.Link>Timesheets</Styled.Link>
+          </Link>
         </li>
         <li>
-          <a href="#">Team members</a>
+          <Link href="/team-members" passHref>
+            <Styled.Link>Team members</Styled.Link>
+          </Link>
         </li>
         <li>
-          <a href="#">Projects</a>
+          <Styled.Link>Projects</Styled.Link>
         </li>
         <li>
-          <a href="#">Clients</a>
+          <Styled.Link>Clients</Styled.Link>
         </li>
         <li>
-          <a href="#">Documents</a>
+          <Styled.Link>Documents</Styled.Link>
         </li>
       </Styled.Menu>
     </Styled.Container>
