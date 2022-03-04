@@ -45,21 +45,22 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         <NewTimeEntry onClose={() => setIsModalActive(false)} />
       </Modal>
       <PageContainer>
-        {timeEntries.map(({ client, endTime, id, startTime }, i) => {
-          const currentDate = new Date(startTime).toLocaleDateString();
-          const renderHeader =
-            i === 0
-              ? true
-              : new Date(timeEntries[i - 1].startTime).toLocaleDateString() !== currentDate;
+        {timeEntries
+          .sort((a, b) => Number(new Date(b.startTime)) - Number(new Date(a.startTime)))
+          .map(({ client, endTime, id, startTime }, i) => {
+            const currentDate = new Date(startTime).toLocaleDateString();
+            const renderHeader =
+              i === 0
+                ? true
+                : new Date(timeEntries[i - 1].startTime).toLocaleDateString() !== currentDate;
+            return (
+              <React.Fragment key={id}>
+                {renderHeader && <TimeEntriesHeader dateString={startTime} />}
 
-          return (
-            <React.Fragment key={id}>
-              {renderHeader && <TimeEntriesHeader dateString={startTime} />}
-
-              <TimeEntry {...{ client, endTime, id, startTime, handleClick }} />
-            </React.Fragment>
-          );
-        })}
+                <TimeEntry {...{ client, endTime, id, startTime, handleClick }} />
+              </React.Fragment>
+            );
+          })}
       </PageContainer>
     </>
   );
