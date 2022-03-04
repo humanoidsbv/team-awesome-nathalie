@@ -34,7 +34,13 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
       <PageContainer>
         {teamMembers.map(
           ({ client, firstName, lastName, role, startingDate }: Types.TeamMember) => (
-            <TeamMember {...{ client, firstName, lastName, role, startingDate }} />
+            <TeamMember
+              client={client}
+              firstName={firstName}
+              lastName={lastName}
+              role={role}
+              startingDate={startingDate}
+            />
           ),
         )}
       </PageContainer>
