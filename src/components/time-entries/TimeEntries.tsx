@@ -32,7 +32,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     removeTimeEntry(id);
   };
 
-  const handleClientFilter = (event) => {
+  const handleClientFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setClientFilter(event.target.value);
   };
 

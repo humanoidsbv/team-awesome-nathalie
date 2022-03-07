@@ -9,14 +9,14 @@ import { TeamMember } from "../team-member/TeamMember";
 import * as Types from "../../types/TeamMembers.types";
 
 interface TeamMembersComponentProps {
-  teamMembers: Types.TeamMember;
+  teamMembers: Types.TeamMember[];
 }
 
 export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
   const [teamMembers, setTeamMembers] = useState<Types.TeamMember[]>(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
 
-  const createTeamMembers = (newTeamMember) => {
+  const createTeamMembers = (newTeamMember: Types.TeamMember) => {
     setTeamMembers([...teamMembers, newTeamMember]);
   };
 
