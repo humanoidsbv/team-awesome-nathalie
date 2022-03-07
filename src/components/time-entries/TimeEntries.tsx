@@ -13,12 +13,14 @@ import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
   timeEntries: Types.TimeEntry[];
+  clients: [];
 }
 
 export const TimeEntries = (props: TimeEntriesProps) => {
   const state = useContext(StoreContext);
   const [timeEntries, setTimeEntries] = state.timeEntries;
   const [isModalActive, setIsModalActive] = useState(false);
+  // const [clients, setClients] = useState(props.clients);
 
   useEffect(() => {
     setTimeEntries(props.timeEntries);
@@ -29,6 +31,10 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     removeTimeEntry(id);
   };
 
+  const handleClientFilter = (event) => {
+    console.log(event.target.value);
+  };
+
   return (
     <>
       <Subheader
@@ -37,6 +43,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         subtitle={`${timeEntries.length} Entries`}
         title="Timesheets"
       />
+
       <Modal
         isActive={isModalActive}
         onClose={() => setIsModalActive(false)}
@@ -45,6 +52,14 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         <NewTimeEntry onClose={() => setIsModalActive(false)} />
       </Modal>
       <PageContainer>
+        <label htmlFor="filter-client">Filter client:</label>
+        <select name="clients" id="filter-client" onChange={handleClientFilter}>
+          <option value="">Select client</option>
+          {props.clients.map((client) => (
+            <option value={client.name}>{client.name}</option>
+          ))}
+        </select>
+        {/* {clients.filter((client) => client.name === timeEntries.client)} */}
         {timeEntries
           .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
           .map(({ client, endTime, id, startTime }, i) => {
