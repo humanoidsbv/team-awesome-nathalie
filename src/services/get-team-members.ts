@@ -9,7 +9,7 @@ export async function getTeamMembers(): Promise<Types.TeamMember[]> {
   })
     .then((response) => {
       if (response.status === 404) {
-        throw new NotFoundError(response);
+        throw new NotFoundError("Error/ Not Found");
       }
 
       return response;

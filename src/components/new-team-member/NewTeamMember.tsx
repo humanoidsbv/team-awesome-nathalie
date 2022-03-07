@@ -6,10 +6,16 @@ import * as Types from "../../types/TeamMembers.types";
 import { Button } from "../button/Button";
 import { addTeamMember } from "../../services/post-team-members";
 
-export const NewTeamMember = ({ onCreate }) => {
+interface NewTeamMemberProps {
+  onCreate: (newTeamMember: Types.TeamMember) => void;
+}
+
+export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
   const [newTeamMember, setNewTeamMember] = useState<Types.TeamMember>({} as Types.TeamMember);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
     event.preventDefault();
 
     const addedTeamMember = await addTeamMember(newTeamMember);

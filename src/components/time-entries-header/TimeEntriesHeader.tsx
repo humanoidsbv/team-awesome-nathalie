@@ -20,14 +20,14 @@ export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
   });
 
   const formatDuration = (duration: number) => {
-    const hours = Number.parseInt(duration / 1000 / 60 / 60).toString();
-    const minutes = Number.parseInt((duration / 1000 / 60) % 60).toString();
+    const hours = Number.parseInt(String(duration / 1000 / 60 / 60)).toString();
+    const minutes = Number.parseInt(String((duration / 1000 / 60) % 60)).toString();
     return `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
   };
 
   const getDurationByDay = (isoDate: string, timeEntries: Types.TimeEntry[]) => {
     const calculateDuration = ({ endTime, startTime }: Types.TimeEntry) => {
-      return new Date(endTime) - new Date(startTime);
+      return new Date(endTime).getTime() - new Date(startTime).getTime();
     };
 
     const duration = timeEntries

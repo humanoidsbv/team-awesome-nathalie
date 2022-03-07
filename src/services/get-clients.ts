@@ -8,7 +8,7 @@ export async function getClients(): Promise<Types.Client> {
   })
     .then((response) => {
       if (response.status === 404) {
-        throw new NotFoundError(response);
+        throw new NotFoundError("Error/ Not Found");
       }
 
       return response;
