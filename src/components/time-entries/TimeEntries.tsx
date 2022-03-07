@@ -46,7 +46,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
       </Modal>
       <PageContainer>
         {timeEntries
-          .sort((a, b) => Number(new Date(b.startTime)) - Number(new Date(a.startTime)))
+          .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
           .map(({ client, endTime, id, startTime }, i) => {
             const currentDate = new Date(startTime).toLocaleDateString();
             const renderHeader =
