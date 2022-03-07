@@ -8,19 +8,20 @@ import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as Types from "../../types/TimeEntry.types";
+import * as Type from "../../types/Client.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
 import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
   timeEntries: Types.TimeEntry[];
-  clients: [];
+  clients: Type.Client[];
 }
 
 export const TimeEntries = (props: TimeEntriesProps) => {
   const state = useContext(StoreContext);
   const [timeEntries, setTimeEntries] = state.timeEntries;
   const [isModalActive, setIsModalActive] = useState(false);
-  // const [clients, setClients] = useState(props.clients);
+  const [clientFilter, setClientFilter] = useState("");
 
   useEffect(() => {
     setTimeEntries(props.timeEntries);
@@ -32,7 +33,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
   };
 
   const handleClientFilter = (event) => {
-    console.log(event.target.value);
+    setClientFilter(event.target.value);
   };
 
   return (
@@ -56,12 +57,14 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         <select name="clients" id="filter-client" onChange={handleClientFilter}>
           <option value="">Select client</option>
           {props.clients.map((client) => (
-            <option value={client.name}>{client.name}</option>
+            <option value={client.name} key={client.id}>
+              {client.name}
+            </option>
           ))}
         </select>
-        {/* {clients.filter((client) => client.name === timeEntries.client)} */}
         {timeEntries
           .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
+          .filter((timeEntry) => (clientFilter !== "" ? timeEntry.client === clientFilter : true))
           .map(({ client, endTime, id, startTime }, i) => {
             const currentDate = new Date(startTime).toLocaleDateString();
             const renderHeader =
