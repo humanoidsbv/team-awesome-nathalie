@@ -7,18 +7,21 @@ import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 
-import * as Types from "../../types/TimeEntry.types";
+import * as TimeEntryTypes from "../../types/TimeEntry.types";
+import * as ClientTypes from "../../types/Client.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
 import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
-  timeEntries: Types.TimeEntry[];
+  timeEntries: TimeEntryTypes.TimeEntry[];
+  clients: ClientTypes.Client[];
 }
 
 export const TimeEntries = (props: TimeEntriesProps) => {
   const state = useContext(StoreContext);
   const [timeEntries, setTimeEntries] = state.timeEntries;
   const [isModalActive, setIsModalActive] = useState(false);
+  const [clientFilter, setClientFilter] = useState("");
 
   useEffect(() => {
     setTimeEntries(props.timeEntries);
@@ -29,6 +32,10 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     removeTimeEntry(id);
   };
 
+  const handleClientFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setClientFilter(event.target.value);
+  };
+
   return (
     <>
       <Subheader
@@ -37,6 +44,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         subtitle={`${timeEntries.length} Entries`}
         title="Timesheets"
       />
+
       <Modal
         isActive={isModalActive}
         onClose={() => setIsModalActive(false)}
@@ -45,8 +53,18 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         <NewTimeEntry onClose={() => setIsModalActive(false)} />
       </Modal>
       <PageContainer>
+        <label htmlFor="filter-client">Filter client:</label>
+        <select name="clients" id="filter-client" onChange={handleClientFilter}>
+          <option value="">Select client</option>
+          {props.clients.map((client) => (
+            <option value={client.name} key={client.id}>
+              {client.name}
+            </option>
+          ))}
+        </select>
         {timeEntries
-          .sort((a, b) => Number(new Date(b.startTime)) - Number(new Date(a.startTime)))
+          .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
+          .filter((timeEntry) => (clientFilter !== "" ? timeEntry.client === clientFilter : true))
           .map(({ client, endTime, id, startTime }, i) => {
             const currentDate = new Date(startTime).toLocaleDateString();
             const renderHeader =

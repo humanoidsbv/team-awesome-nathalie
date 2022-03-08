@@ -10,15 +10,18 @@ import { getTimeEntries } from "../src/services/get-time-entries";
 import { NotFoundError } from "../src/error/not-found-error";
 
 import * as Types from "../src/types/TimeEntry.types";
+import { getClients } from "../src/services/get-clients";
 
-interface homepageProps {
+interface HomepageProps {
   timeEntries: Types.TimeEntry[];
+  clients: [];
 }
 
 export const getServerSideProps = async () => {
-  const response = await getTimeEntries();
+  const timeEntriesResponse = await getTimeEntries();
+  const clientsResponse = await getClients();
 
-  if (response instanceof NotFoundError) {
+  if (timeEntriesResponse instanceof NotFoundError) {
     return {
       props: {
         timeEntries: [],
@@ -28,18 +31,19 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      timeEntries: response,
+      timeEntries: timeEntriesResponse,
+      clients: clientsResponse,
     },
   };
 };
 
-const Homepage = ({ timeEntries }: homepageProps) => {
+const Homepage = ({ timeEntries, clients }: HomepageProps) => {
   return (
     <>
       <GlobalStyle />
       <StoreProvider>
         <Header />
-        <TimeEntries timeEntries={timeEntries} />
+        <TimeEntries timeEntries={timeEntries} clients={clients} />
       </StoreProvider>
     </>
   );

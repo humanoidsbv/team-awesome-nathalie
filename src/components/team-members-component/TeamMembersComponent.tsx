@@ -9,15 +9,30 @@ import { TeamMember } from "../team-member/TeamMember";
 import * as Types from "../../types/TeamMembers.types";
 
 interface TeamMembersComponentProps {
-  teamMembers: Types.TeamMember;
+  teamMembers: Types.TeamMember[];
 }
+
+type SortTeamMembersValues = "client" | "firstName" | "lastName" | "role" | "startingDate";
 
 export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
   const [teamMembers, setTeamMembers] = useState<Types.TeamMember[]>(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
+  const [sortTeamMember, setSortTeamMember] = useState<SortTeamMembersValues>("lastName");
 
-  const createTeamMembers = (newTeamMember) => {
+  const teamMemberProperty = [
+    { value: "client", label: "Client" },
+    { value: "firstName", label: "First Name" },
+    { value: "lastName", label: "Last Name" },
+    { value: "role", label: "Role" },
+    { value: "startingDate", label: "Starting Date" },
+  ];
+
+  const createTeamMembers = (newTeamMember: Types.TeamMember) => {
     setTeamMembers([...teamMembers, newTeamMember]);
+  };
+
+  const handleSortTeamMember = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortTeamMember(event.target.value as SortTeamMembersValues);
   };
 
   return (
@@ -32,8 +47,18 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
         <NewTeamMember onCreate={createTeamMembers} />
       </Modal>
       <PageContainer>
-        {teamMembers.map(
-          ({ client, firstName, lastName, role, startingDate }: Types.TeamMember) => (
+        <label htmlFor="sort-team-members">Sort team members:</label>
+
+        <select name="team-members" id="sort-team-members" onChange={handleSortTeamMember}>
+          <option value="">Filter by...</option>
+          {teamMemberProperty.map((sort) => (
+            <option value={sort.value}>{sort.label}</option>
+          ))}
+        </select>
+
+        {teamMembers
+          .sort((a, b) => a[sortTeamMember].localeCompare(b[sortTeamMember]))
+          .map(({ client, firstName, lastName, role, startingDate }: Types.TeamMember) => (
             <TeamMember
               client={client}
               firstName={firstName}
@@ -41,8 +66,7 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
               role={role}
               startingDate={startingDate}
             />
-          ),
-        )}
+          ))}
       </PageContainer>
     </>
   );

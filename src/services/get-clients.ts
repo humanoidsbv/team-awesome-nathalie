@@ -1,9 +1,8 @@
-import * as Types from "../types/TeamMembers.types";
-
 import { NotFoundError } from "../error/not-found-error";
+import * as Types from "../types/Client.types";
 
-export async function getTeamMembers(): Promise<Types.TeamMember[]> {
-  return fetch("http://localhost:3004/team-members", {
+export async function getClients(): Promise<Types.Client> {
+  return fetch("http://localhost:3004/clients", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
