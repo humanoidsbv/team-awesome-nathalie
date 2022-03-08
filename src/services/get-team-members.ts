@@ -3,7 +3,7 @@ import * as Types from "../types/TeamMembers.types";
 import { NotFoundError } from "../error/not-found-error";
 
 export async function getTeamMembers(): Promise<Types.TeamMember[]> {
-  return fetch("http://localhost:3004/team-members", {
+  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-members`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
