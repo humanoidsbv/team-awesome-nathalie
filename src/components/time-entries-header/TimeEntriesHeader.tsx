@@ -20,8 +20,8 @@ export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
   });
 
   const formatDuration = (duration: number) => {
-    const hours = Number.parseInt(String(duration / 1000 / 60 / 60)).toString();
-    const minutes = Number.parseInt(String((duration / 1000 / 60) % 60)).toString();
+    const hours = Math.round(duration / 1000 / 60 / 60).toString();
+    const minutes = Math.round((duration / 1000 / 60) % 60).toString();
     return `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
   };
 
