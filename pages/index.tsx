@@ -18,10 +18,10 @@ interface homepageProps {
 }
 
 export const getServerSideProps = async () => {
-  const response = await getTimeEntries();
+  const timeEntriesResponse = await getTimeEntries();
   const clientsResponse = await getClients();
 
-  if (response instanceof NotFoundError) {
+  if (timeEntriesResponse instanceof NotFoundError) {
     return {
       props: {
         timeEntries: [],
@@ -31,7 +31,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      timeEntries: response,
+      timeEntries: timeEntriesResponse,
       clients: clientsResponse,
     },
   };

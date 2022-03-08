@@ -12,9 +12,9 @@ interface teamMemberProps {
 }
 
 export const getServerSideProps = async () => {
-  const response = await getTeamMembers();
+  const teamMembersResponse = await getTeamMembers();
 
-  if (response instanceof NotFoundError) {
+  if (teamMembersResponse instanceof NotFoundError) {
     return {
       props: {
         teamMembers: [],
@@ -24,7 +24,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      teamMembers: response,
+      teamMembers: teamMembersResponse,
     },
   };
 };
