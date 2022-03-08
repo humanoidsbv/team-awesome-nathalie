@@ -12,7 +12,7 @@ import { NotFoundError } from "../src/error/not-found-error";
 import * as Types from "../src/types/TimeEntry.types";
 import { getClients } from "../src/services/get-clients";
 
-interface homepageProps {
+interface HomepageProps {
   timeEntries: Types.TimeEntry[];
   clients: [];
 }
@@ -37,7 +37,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Homepage = ({ timeEntries, clients }: homepageProps) => {
+const Homepage = ({ timeEntries, clients }: HomepageProps) => {
   return (
     <>
       <GlobalStyle />

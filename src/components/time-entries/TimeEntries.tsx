@@ -7,14 +7,14 @@ import { Subheader } from "../subheader/Subheader";
 import { TimeEntriesHeader } from "../time-entries-header/TimeEntriesHeader";
 import { TimeEntry } from "../time-entry/TimeEntry";
 
-import * as Types from "../../types/TimeEntry.types";
-import * as Type from "../../types/Client.types";
+import * as TimeEntryTypes from "../../types/TimeEntry.types";
+import * as ClientTypes from "../../types/Client.types";
 import { removeTimeEntry } from "../../services/delete-time-entries";
 import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
-  timeEntries: Types.TimeEntry[];
-  clients: Type.Client[];
+  timeEntries: TimeEntryTypes.TimeEntry[];
+  clients: ClientTypes.Client[];
 }
 
 export const TimeEntries = (props: TimeEntriesProps) => {

@@ -12,10 +12,12 @@ interface TeamMembersComponentProps {
   teamMembers: Types.TeamMember[];
 }
 
+type SortTeamMembersValues = "client" | "firstName" | "lastName" | "role" | "startingDate";
+
 export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
   const [teamMembers, setTeamMembers] = useState<Types.TeamMember[]>(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
-  const [sortTeamMember, setSortTeamMember] = useState<sortTeamMembersValues>("lastName");
+  const [sortTeamMember, setSortTeamMember] = useState<SortTeamMembersValues>("lastName");
 
   const teamMemberProperty = [
     { value: "client", label: "Client" },
@@ -29,10 +31,8 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
     setTeamMembers([...teamMembers, newTeamMember]);
   };
 
-  type sortTeamMembersValues = "client" | "firstName" | "lastName" | "role" | "startingDate";
-
   const handleSortTeamMember = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortTeamMember(event.target.value as sortTeamMembersValues);
+    setSortTeamMember(event.target.value as SortTeamMembersValues);
   };
 
   return (
