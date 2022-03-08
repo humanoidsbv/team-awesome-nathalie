@@ -76,6 +76,16 @@
       "role": "test",
       "startingDate": "test",
       "id": 4
+    },
+    {
+      "emailAddress": "nathalie.bruinhof@humanoids.nl",
+      "client": "Humanoids",
+      "firstName": "Nathalie",
+      "id": 5,
+      "label": "Een stukje tekst",
+      "lastName": "Bruinhof",
+      "role": "Front-end Developer",
+      "startingDate": "February 2022"
     }
   ],
   "clients": [
