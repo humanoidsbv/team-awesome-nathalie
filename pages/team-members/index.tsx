@@ -35,7 +35,7 @@ const TeamMembers = ({ teamMembers }: teamMemberProps) => {
     <>
       <GlobalStyle />
       <Header />
-      <TeamMembersComponent teamMembers={teamMembers} />
+      <TeamMembersComponent databaseTeamMembers={teamMembers} />
     </>
   );
 };

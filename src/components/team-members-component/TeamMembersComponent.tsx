@@ -47,14 +47,15 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
         <NewTeamMember onCreate={createTeamMembers} />
       </Modal>
       <PageContainer>
-        <label htmlFor="sort-team-members">Sort team members:</label>
-
-        <select name="team-members" id="sort-team-members" onChange={handleSortTeamMember}>
-          <option value="">Filter by...</option>
-          {teamMemberProperty.map((sort) => (
-            <option value={sort.value}>{sort.label}</option>
-          ))}
-        </select>
+        <label htmlFor="sort-team-members">
+          Sort team members:
+          <select name="team-members" id="sort-team-members" onChange={handleSortTeamMember}>
+            <option value="">Filter by...</option>
+            {teamMemberProperty.map((sort) => (
+              <option value={sort.value}>{sort.label}</option>
+            ))}
+          </select>
+        </label>
 
         {teamMembers
           .sort((a, b) => a[sortTeamMember].localeCompare(b[sortTeamMember]))

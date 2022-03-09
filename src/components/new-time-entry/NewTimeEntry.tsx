@@ -55,55 +55,70 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
 
   return (
     <Styled.NewTimeEntry onSubmit={handleSubmit} ref={formRef}>
-      <label htmlFor="client">Client</label>
-      <input
-        minLength={2}
-        name="client"
-        onChange={handleChange}
-        required
-        type="text"
-        value={newTimeEntry.client ?? ""}
-      />
-      <label htmlFor="activity">Activity</label>
-      <input
-        minLength={2}
-        name="activity"
-        onChange={handleChange}
-        required
-        type="text"
-        value={newTimeEntry.activity ?? ""}
-      />
+      <label htmlFor="client">
+        Client
+        <input
+          id="client"
+          minLength={2}
+          name="client"
+          onChange={handleChange}
+          required
+          type="text"
+          value={newTimeEntry.client ?? ""}
+        />
+      </label>
+      <label htmlFor="activity">
+        Activity
+        <input
+          id="activity"
+          minLength={2}
+          name="activity"
+          onChange={handleChange}
+          required
+          type="text"
+          value={newTimeEntry.activity ?? ""}
+        />
+      </label>
       <Styled.DateTimeInputWrapper>
         <Styled.DateInput>
-          <label htmlFor="date">Date</label>
-          <input
-            name="date"
-            onChange={handleChange}
-            required
-            type="date"
-            value={newTimeEntry.date ?? ""}
-          />
+          <label htmlFor="date">
+            Date
+            <input
+              id="date"
+              name="date"
+              onChange={handleChange}
+              required
+              type="date"
+              value={newTimeEntry.date ?? ""}
+            />
+          </label>
         </Styled.DateInput>
         <Styled.TimeInputWrapper>
           <Styled.TimeInput>
-            <label htmlFor="startTime">From</label>
-            <input
-              name="startTime"
-              onChange={handleChange}
-              required
-              type="time"
-              value={newTimeEntry.startTime ?? ""}
-            />
+            <label htmlFor="startTime">
+              From
+              <input
+                id="startTime"
+                name="startTime"
+                onChange={handleChange}
+                required
+                type="time"
+                value={newTimeEntry.startTime ?? ""}
+              />
+            </label>
           </Styled.TimeInput>
           <Styled.TimeInput>
-            <label htmlFor="endTime">To</label>
-            <input
-              name="endTime"
-              onChange={handleChange}
-              required
-              type="time"
-              value={newTimeEntry.endTime ?? ""}
-            />
+            <label htmlFor="endTime">
+              To
+              <input
+                id="endTime"
+                name="endTime"
+                onChange={handleChange}
+                required
+                type="time"
+                value={newTimeEntry.endTime ?? ""}
+              />
+            </label>
           </Styled.TimeInput>
           <Styled.TotalTime>
             Total

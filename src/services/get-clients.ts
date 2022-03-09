@@ -2,7 +2,7 @@ import { NotFoundError } from "../error/not-found-error";
 import * as Types from "../types/Client.types";
 
 export async function getClients(): Promise<Types.Client> {
-  return fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/clients`, {
+  return fetch(`https://my-json-server.typicode.com/humanoidsbv/team-awesome-nathalie/clients`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
