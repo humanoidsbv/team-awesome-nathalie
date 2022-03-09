@@ -18,17 +18,17 @@ export const Header = () => {
     <Styled.Header>
       <Styled.Container>
         <Styled.Wrapper>
-          <Link href="/">
-            <a>team awesome</a>
-          </Link>
-          <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
+          <Link href="/">team awesome</Link>
+          <button onClick={handleClick} type="button">
+            {isActive ? <Close /> : <Hamburger />}
+          </button>
         </Styled.Wrapper>
         <Navigation {...{ isActive }} />
 
         <Styled.UserContainer>
           <Styled.UserButton>
             <Logo />
-            <img src="/img/amijs.jpg" />
+            <img src="/img/amijs.jpg" alt="user" />
           </Styled.UserButton>
           <Styled.ArrowDown />
         </Styled.UserContainer>

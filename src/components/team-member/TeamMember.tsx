@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as Styled from "./TeamMember.styled";
 import * as Types from "../../types/TeamMembers.types";
 
@@ -11,7 +13,7 @@ export const TeamMember = ({
   return (
     <Styled.TeamMemberContainer>
       <Styled.TeamMember>
-        <img src="/img/amijs.jpg" />
+        <img src="/img/amijs.jpg" alt="user" />
         <Styled.Text>
           {firstName} {lastName}
           <p>{role}</p>

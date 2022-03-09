@@ -29,8 +29,8 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
       return;
     }
 
-    const startTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.startTime).toISOString();
-    const endTimestamp = new Date(newTimeEntry.date + " " + newTimeEntry.endTime).toISOString();
+    const startTimestamp = new Date(`${newTimeEntry.date} ${newTimeEntry.startTime}`).toISOString();
+    const endTimestamp = new Date(`${newTimeEntry.date} ${newTimeEntry.endTime}`).toISOString();
 
     const newTimeEntryFormatted = {
       activity: newTimeEntry.activity,

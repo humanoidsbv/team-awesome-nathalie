@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "../button/Button";
 
 import * as Styled from "./Subheader.styled";

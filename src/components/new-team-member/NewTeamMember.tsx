@@ -31,7 +31,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
 
   return (
     <Styled.NewTeamMember>
-      <img src="/img/amijs.jpg" />
+      <img src="/img/amijs.jpg" alt="user-avatar" />
       <p>Edit Avatar</p>
       <Styled.Form>
         <Styled.Small>

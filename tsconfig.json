@@ -12,9 +12,16 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/_document.jsx",
+    "jest.config.js",
+    "jest.setup.js"
+  ],
   "exclude": ["node_modules", "pages/_document.tsx"]
 }

@@ -1,3 +1,5 @@
+import React from "react";
+
 import * as Styled from "./TimeEntry.styled";
 
 import DeleteIcon from "../../../public/icons/delete-icon.svg";

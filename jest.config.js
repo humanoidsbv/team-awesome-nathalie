@@ -1,6 +1,5 @@
 module.exports = {
   collectCoverageFrom: ["**/*.{ts,tsx}", "!**/node_modules/**", "!jest.config.js"],
-  setupFiles: ["<rootDir>/jest.setup.js"],
   preset: "ts-jest",
   testPathIgnorePatterns: [
     "/.next/",
