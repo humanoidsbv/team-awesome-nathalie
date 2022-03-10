@@ -5,12 +5,13 @@ import * as Styled from "./Subheader.styled";
 
 interface SubheaderProps {
   buttonLabel: string;
+  id?: string;
   onClick: () => void;
   subtitle: string;
   title: string;
 }
 
-export const Subheader = ({ buttonLabel, onClick, subtitle, title }: SubheaderProps) => {
+export const Subheader = ({ buttonLabel, id, onClick, subtitle, title }: SubheaderProps) => {
   return (
     <Styled.Container>
       <Styled.TimesheetText>
@@ -18,7 +19,7 @@ export const Subheader = ({ buttonLabel, onClick, subtitle, title }: SubheaderPr
         <Styled.EntryText>{subtitle}</Styled.EntryText>
       </Styled.TimesheetText>
       <Styled.Button>
-        <Button icon label={buttonLabel} {...{ onClick }} />
+        <Button icon label={buttonLabel} {...{ onClick }} id={id} />
       </Styled.Button>
     </Styled.Container>
   );

@@ -120,7 +120,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
         </Styled.Small>
         <Styled.Buttons>
           <Button label="Cancel" kind="secondary" />
-          <Button label="Add time entry" onClick={handleSubmit} />
+          <Button label="Add Humanoid" id="addHumanoid" onClick={handleSubmit} />
         </Styled.Buttons>
       </Styled.Form>
     </Styled.NewTeamMember>

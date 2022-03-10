@@ -27,7 +27,7 @@ export const Modal = ({ children, isActive, onClose, title }: ModalProps) => {
       >
         <Styled.TitleBar>
           <h1>{title}</h1>
-          <Close onClick={onClose} />
+          <Close onClick={onClose} id="closeButton" />
         </Styled.TitleBar>
         {children}
       </Styled.ModalContent>
