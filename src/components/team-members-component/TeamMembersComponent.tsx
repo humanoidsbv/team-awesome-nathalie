@@ -40,7 +40,6 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
     <>
       <Subheader
         buttonLabel="New Humanoid"
-        id="newHumanoidButton"
         subtitle={`${teamMembers.length} Humanoids`}
         title="Team members"
         onClick={() => setIsModalActive(true)}

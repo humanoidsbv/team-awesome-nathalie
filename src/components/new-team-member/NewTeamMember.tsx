@@ -31,14 +31,15 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
 
   return (
     <Styled.NewTeamMember>
-      <img src="/img/amijs.jpg" alt="user-avatar" />
+      <img src="/img/amijs.jpg" alt="user" />
       <p>Edit Avatar</p>
-      <Styled.Form>
+      <Styled.Form data-cy="form">
         <Styled.Small>
           <div>
             <label htmlFor="firstName">
               First name
               <input
+                data-cy="firstName"
                 id="firstName"
                 name="firstName"
                 onChange={handleChange}
@@ -51,6 +52,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
             <label htmlFor="lastName">
               Last name
               <input
+                data-cy="lastName"
                 id="lastName"
                 name="lastName"
                 onChange={handleChange}
@@ -120,7 +122,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
         </Styled.Small>
         <Styled.Buttons>
           <Button label="Cancel" kind="secondary" />
-          <Button label="Add Humanoid" id="addHumanoid" onClick={handleSubmit} />
+          <Button label="Add Humanoid" onClick={handleSubmit} />
         </Styled.Buttons>
       </Styled.Form>
     </Styled.NewTeamMember>

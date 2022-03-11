@@ -1,5 +1,3 @@
-import React from "react";
-
 import Link from "next/link";
 
 import * as Styled from "./Navigation.styled";
@@ -14,12 +12,12 @@ export const Navigation = ({ isActive }: NavigationProps) => {
       <Styled.Menu {...{ isActive }}>
         <li>
           <Link href="/" passHref>
-            <Styled.Link id="timesheetsLink">Timesheets</Styled.Link>
+            <Styled.Link data-cy="timesheetsLink">Timesheets</Styled.Link>
           </Link>
         </li>
         <li>
           <Link href="/team-members" passHref>
-            <Styled.Link id="teamMembersLink">Team members</Styled.Link>
+            <Styled.Link data-cy="teamMembersLink">Team members</Styled.Link>
           </Link>
         </li>
         <li>

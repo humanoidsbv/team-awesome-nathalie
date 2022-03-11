@@ -7,7 +7,7 @@ describe("New Team Member", () => {
       emailAddress: "amijs.breunesse@humanoids.nl",
       client: "Koppert",
       firstName: "Amijs",
-      id: 1,
+      id: 0,
       label: "Een stukje tekst",
       lastName: "Breunesse",
       role: "Front-end Developer",
