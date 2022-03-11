@@ -22,23 +22,3 @@ jobs:
 
       - name: 📦  build
         run: npm run build
-
-  cypress-run:
-    needs: build
-    name: Run cypress test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "17"
-          cache: npm
-      - name: 🧰  Install
-        run: npm ci --production-only
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          build: npm run build
-          start: npm start
