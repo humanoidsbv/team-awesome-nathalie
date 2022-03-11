@@ -23,7 +23,7 @@ jobs:
       - name: 📦  build
         run: npm run build
 
- cypress-run:
+  cypress-run:
     needs: build
     name: Run cypress test
     runs-on: ubuntu-latest
