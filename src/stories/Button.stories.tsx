@@ -12,13 +12,15 @@ export default {
   title: "Button",
   component: Button,
   argTypes: {
+    disabled: {
+      options: [true, false],
+      control: { type: "boolean" },
+    },
+    icon: {
+      options: [true, false],
+      control: { type: "boolean" },
+    },
+    label: { defaultValue: "Button" },
     onClick: { action: "clicked" },
   },
 };
-
-export const Primary = () => (
-  <Button onClick={action("clicked")} label="Primary Button" disabled={false} />
-);
-export const Secondary = () => (
-  <Button onClick={action("clicked")} label="Secondary Button" kind="secondary" />
-);
