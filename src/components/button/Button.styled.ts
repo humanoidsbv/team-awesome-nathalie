@@ -17,7 +17,6 @@ export const Button = styled.button<ButtonProps>`
   gap: 15px;
   justify-content: center;
   padding: 13px 30px;
-  /* width: 100%; */
 
   svg {
     fill: #fff;
