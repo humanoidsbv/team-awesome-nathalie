@@ -5,8 +5,8 @@ import * as Styled from "./Header.styled";
 
 import { Navigation } from "../navigation/Navigation";
 
-import Close from "../../../public/icons/close.svg";
-import Hamburger from "../../../public/icons/hamburger.svg";
+import CloseIcon from "../../../public/icons/close.svg";
+import HamburgerIcon from "../../../public/icons/hamburger.svg";
 import Logo from "../../../public/img/humanoids-logo.svg";
 
 export const Header = () => {
@@ -20,7 +20,7 @@ export const Header = () => {
         <Styled.Wrapper>
           <Link href="/">team awesome</Link>
           <button onClick={handleClick} type="button">
-            {isActive ? <Close /> : <Hamburger />}
+            {isActive ? <CloseIcon /> : <HamburgerIcon />}
           </button>
         </Styled.Wrapper>
         <Navigation {...{ isActive }} />

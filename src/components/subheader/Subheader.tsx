@@ -4,7 +4,6 @@ import * as Styled from "./Subheader.styled";
 
 interface SubheaderProps {
   buttonLabel: string;
-  dataCy?: string;
   onClick: () => void;
   subtitle: string;
   title: string;
