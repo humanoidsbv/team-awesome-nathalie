@@ -62,7 +62,7 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
         onChange={handleChange}
         required
         type="text"
-        value={newTimeEntry.client ?? ""}
+        value={newTimeEntry?.client}
       />
       <label htmlFor="activity">Activity</label>
       <input
@@ -71,7 +71,7 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
         onChange={handleChange}
         required
         type="text"
-        value={newTimeEntry.activity ?? ""}
+        value={newTimeEntry?.activity}
       />
       <Styled.DateTimeInputWrapper>
         <Styled.DateInput>
@@ -81,7 +81,7 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
             onChange={handleChange}
             required
             type="date"
-            value={newTimeEntry.date ?? ""}
+            value={newTimeEntry?.date}
           />
         </Styled.DateInput>
         <Styled.TimeInputWrapper>
@@ -92,7 +92,7 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
               onChange={handleChange}
               required
               type="time"
-              value={newTimeEntry.startTime ?? ""}
+              value={newTimeEntry?.startTime}
             />
           </Styled.TimeInput>
           <Styled.TimeInput>
@@ -102,7 +102,7 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
               onChange={handleChange}
               required
               type="time"
-              value={newTimeEntry.endTime ?? ""}
+              value={newTimeEntry?.endTime}
             />
           </Styled.TimeInput>
           <Styled.TotalTime>

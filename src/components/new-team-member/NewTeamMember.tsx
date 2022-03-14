@@ -41,7 +41,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
               name="firstName"
               onChange={handleChange}
               type="text"
-              value={newTeamMember.firstName ?? ""}
+              value={newTeamMember?.firstName}
             />
           </div>
           <div>
@@ -50,7 +50,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
               name="lastName"
               onChange={handleChange}
               type="text"
-              value={newTeamMember.lastName ?? ""}
+              value={newTeamMember?.lastName}
             />
           </div>
         </Styled.Small>
@@ -59,28 +59,18 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
           name="emailAddress"
           onChange={handleChange}
           type="text"
-          value={newTeamMember.emailAddress ?? ""}
+          value={newTeamMember?.emailAddress}
         />
 
         <label htmlFor="label">Label</label>
         <input name="label" onChange={handleChange} type="text" value={newTeamMember.label ?? ""} />
 
         <label htmlFor="client">Client</label>
-        <input
-          name="client"
-          onChange={handleChange}
-          type="text"
-          value={newTeamMember.client ?? ""}
-        />
+        <input name="client" onChange={handleChange} type="text" value={newTeamMember?.client} />
         <Styled.Small>
           <div>
             <label htmlFor="role">Role</label>
-            <input
-              name="role"
-              onChange={handleChange}
-              type="text"
-              value={newTeamMember.role ?? ""}
-            />
+            <input name="role" onChange={handleChange} type="text" value={newTeamMember?.role} />
           </div>
           <div>
             <label htmlFor="startingDate">Starting date</label>
@@ -88,7 +78,7 @@ export const NewTeamMember = ({ onCreate }: NewTeamMemberProps) => {
               name="startingDate"
               onChange={handleChange}
               type="text"
-              value={newTeamMember.startingDate}
+              value={newTeamMember?.startingDate}
             />
           </div>
         </Styled.Small>
