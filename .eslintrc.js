@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["@humanoids/eslint-config", "plugin:cypress/recommended"],
+  extends: ["@humanoids/eslint-config", "plugin:cypress/recommended", "plugin:storybook/recommended"],
   env: {
     jest: true,
   },
