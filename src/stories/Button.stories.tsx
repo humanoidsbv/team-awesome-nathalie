@@ -1,5 +1,3 @@
-import { action } from "@storybook/addon-actions";
-
 import { Button } from "../components/button/Button";
 
 import * as Types from "../types/Button.types";
