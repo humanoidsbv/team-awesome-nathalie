@@ -31,26 +31,10 @@ Install Node Package Manager (NPM)
 brew install node
 ```
 
-After the installation of NPM initiate NPM:
+Run this command:
 
 ```bash
-npm init
-```
-
-Install Next.js, React and React-dom
-
-```bash
-npm install next react react-dom
-```
-
-Replace the `scripts` section of your `package.json` with the following:
-
-```bash
-"scripts": {
-  "dev": "next",
-  "build": "next build",
-  "start": "next start"
-}
+npm install
 ```
 
 To run the application use this command:
