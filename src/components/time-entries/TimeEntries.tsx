@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useContext, useEffect, useState } from "react";
 
 import { Modal } from "../modal/Modal";
@@ -53,15 +54,17 @@ export const TimeEntries = (props: TimeEntriesProps) => {
         <NewTimeEntry onClose={() => setIsModalActive(false)} />
       </Modal>
       <PageContainer>
-        <label htmlFor="filter-client">Filter client:</label>
-        <select name="clients" id="filter-client" onChange={handleClientFilter}>
-          <option value="">Select client</option>
-          {props.clients.map((client) => (
-            <option value={client.name} key={client.id}>
-              {client.name}
-            </option>
-          ))}
-        </select>
+        <label htmlFor="filter-client">
+          Filter client:
+          <select name="clients" id="filter-client" onChange={handleClientFilter}>
+            <option value="">Select client</option>
+            {props.clients.map((client) => (
+              <option value={client.name} key={client.id}>
+                {client.name}
+              </option>
+            ))}
+          </select>
+        </label>
         {timeEntries
           .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
           .filter((timeEntry) => (clientFilter !== "" ? timeEntry.client === clientFilter : true))

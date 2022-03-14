@@ -11,7 +11,7 @@ interface SubheaderProps {
 
 export const Subheader = ({ buttonLabel, onClick, subtitle, title }: SubheaderProps) => {
   return (
-    <Styled.Container>
+    <Styled.Container data-cy="subheader">
       <Styled.TimesheetText>
         {title}
         <Styled.EntryText>{subtitle}</Styled.EntryText>

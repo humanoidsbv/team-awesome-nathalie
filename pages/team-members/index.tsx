@@ -1,3 +1,4 @@
+import React from "react";
 import GlobalStyle from "../../styles/global";
 
 import { Header } from "../../src/components/header/Header";
