@@ -5,8 +5,8 @@ import * as Styled from "./Header.styled";
 
 import { Navigation } from "../navigation/Navigation";
 
-import Close from "../../../public/icons/close.svg";
-import Hamburger from "../../../public/icons/hamburger.svg";
+import CloseIcon from "../../../public/icons/close.svg";
+import HamburgerIcon from "../../../public/icons/hamburger.svg";
 import Logo from "../../../public/img/humanoids-logo.svg";
 
 export const Header = () => {
@@ -18,17 +18,17 @@ export const Header = () => {
     <Styled.Header>
       <Styled.Container>
         <Styled.Wrapper>
-          <Link href="/">
-            <a>team awesome</a>
-          </Link>
-          <button onClick={handleClick}>{isActive ? <Close /> : <Hamburger />}</button>
+          <Link href="/">team awesome</Link>
+          <button onClick={handleClick} type="button">
+            {isActive ? <CloseIcon /> : <HamburgerIcon />}
+          </button>
         </Styled.Wrapper>
         <Navigation {...{ isActive }} />
 
         <Styled.UserContainer>
           <Styled.UserButton>
             <Logo />
-            <img src="/img/amijs.jpg" />
+            <img src="/img/amijs.jpg" alt="user" />
           </Styled.UserButton>
           <Styled.ArrowDown />
         </Styled.UserContainer>

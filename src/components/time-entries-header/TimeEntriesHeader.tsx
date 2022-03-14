@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 
 import { StoreContext } from "../store-provider/StoreProvider";
 
-import * as Styled from "../time-entries-header/TimeEntriesHeader.styled";
+import * as Styled from "./TimeEntriesHeader.styled";
 import * as Types from "../../types/TimeEntry.types";
 
 interface TimeEntriesHeaderProps {
@@ -25,7 +25,7 @@ export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
     return `${hours.padStart(2, "0")}:${minutes.padStart(2, "0")}`;
   };
 
-  const getDurationByDay = (isoDate: string, timeEntries: Types.TimeEntry[]) => {
+  const getDurationByDay = (isoDate: string) => {
     const calculateDuration = ({ endTime, startTime }: Types.TimeEntry) => {
       return new Date(endTime).getTime() - new Date(startTime).getTime();
     };
@@ -41,7 +41,7 @@ export const TimeEntriesHeader = ({ dateString }: TimeEntriesHeaderProps) => {
   return (
     <Styled.TimeEntriesHeader>
       {formattedDate}
-      <span>{getDurationByDay(dateString, timeEntries)}</span>
+      <span>{getDurationByDay(dateString)}</span>
     </Styled.TimeEntriesHeader>
   );
 };
