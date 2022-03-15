@@ -1,9 +1,9 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_TIME_ENTRY } from "../../GraphQL/Mutations";
 
 import * as Styled from "./NewTimeEntry.styled";
 import * as Types from "../../types/TimeEntry.types";
-
-import { addTimeEntry } from "../../services/post-time-entries";
 
 import { Button } from "../button/Button";
 import { StoreContext } from "../store-provider/StoreProvider";
@@ -20,6 +20,8 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
 
   const formRef = useRef<HTMLFormElement>(null);
 
+  const [addTimeEntry, { data }] = useMutation(ADD_TIME_ENTRY);
+
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
@@ -32,21 +34,23 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
     const startTimestamp = new Date(`${newTimeEntry.date} ${newTimeEntry.startTime}`).toISOString();
     const endTimestamp = new Date(`${newTimeEntry.date} ${newTimeEntry.endTime}`).toISOString();
 
-    const newTimeEntryFormatted = {
-      activity: newTimeEntry.activity,
-      client: newTimeEntry.client,
-      endTime: endTimestamp,
-      startTime: startTimestamp,
-    };
-
-    const addedTimeEntry = await addTimeEntry(newTimeEntryFormatted);
-
-    if (addedTimeEntry) {
-      setTimeEntries([...timeEntries, addedTimeEntry]);
-    }
+    addTimeEntry({
+      variables: {
+        activity: newTimeEntry.activity,
+        client: newTimeEntry.client,
+        endTime: endTimestamp,
+        startTime: startTimestamp,
+      },
+    });
 
     onClose();
   };
+
+  useEffect(() => {
+    if (data) {
+      setTimeEntries([...timeEntries, data.createTimeEntry]);
+    }
+  }, [data]);
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setIsFormValid(formRef.current?.checkValidity() || false);

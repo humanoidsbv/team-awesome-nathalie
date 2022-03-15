@@ -1,4 +1,6 @@
 import React from "react";
+import { gql } from "@apollo/client";
+import client from "../apollo-client";
 
 import GlobalStyle from "../styles/global";
 
@@ -6,11 +8,7 @@ import { Header } from "../src/components/header/Header";
 import { StoreProvider } from "../src/components/store-provider/StoreProvider";
 import { TimeEntries } from "../src/components/time-entries/TimeEntries";
 
-import { getTimeEntries } from "../src/services/get-time-entries";
-import { NotFoundError } from "../src/error/not-found-error";
-
 import * as Types from "../src/types/TimeEntry.types";
-import { getClients } from "../src/services/get-clients";
 
 interface HomepageProps {
   timeEntries: Types.TimeEntry[];
@@ -18,21 +16,28 @@ interface HomepageProps {
 }
 
 export const getServerSideProps = async () => {
-  const timeEntriesResponse = await getTimeEntries();
-  const clientsResponse = await getClients();
-
-  if (timeEntriesResponse instanceof NotFoundError) {
-    return {
-      props: {
-        timeEntries: [],
-      },
-    };
-  }
+  const { data } = await client.query({
+    query: gql`
+      query GetTimeEntries {
+        allTimeEntries {
+          id
+          activity
+          client
+          endTime
+          startTime
+        }
+        allClients {
+          id
+          name
+        }
+      }
+    `,
+  });
 
   return {
     props: {
-      timeEntries: timeEntriesResponse,
-      clients: clientsResponse,
+      clients: data.allClients,
+      timeEntries: data.allTimeEntries,
     },
   };
 };
