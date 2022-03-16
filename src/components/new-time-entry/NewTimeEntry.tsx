@@ -22,6 +22,12 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
 
   const [addTimeEntry, { data }] = useMutation(ADD_TIME_ENTRY);
 
+  useEffect(() => {
+    if (data) {
+      setTimeEntries([...timeEntries, data.createTimeEntry]);
+    }
+  }, [data]);
+
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
@@ -31,26 +37,17 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
       return;
     }
 
-    const startTimestamp = new Date(`${newTimeEntry.date} ${newTimeEntry.startTime}`).toISOString();
-    const endTimestamp = new Date(`${newTimeEntry.date} ${newTimeEntry.endTime}`).toISOString();
-
-    addTimeEntry({
+    await addTimeEntry({
       variables: {
         activity: newTimeEntry.activity,
         client: newTimeEntry.client,
-        endTime: endTimestamp,
-        startTime: startTimestamp,
+        endTime: new Date(`${newTimeEntry.date} ${newTimeEntry.endTime}`).toISOString(),
+        startTime: new Date(`${newTimeEntry.date} ${newTimeEntry.startTime}`).toISOString(),
       },
     });
 
     onClose();
   };
-
-  useEffect(() => {
-    if (data) {
-      setTimeEntries([...timeEntries, data.createTimeEntry]);
-    }
-  }, [data]);
 
   const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setIsFormValid(formRef.current?.checkValidity() || false);
