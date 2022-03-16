@@ -58,7 +58,7 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
           </select>
         </label>
 
-        {teamMembers
+        {[...teamMembers]
           .sort((a, b) => a[sortTeamMember].localeCompare(b[sortTeamMember]))
           .map(({ client, firstName, lastName, role, startingDate }: Types.TeamMember) => (
             <TeamMember

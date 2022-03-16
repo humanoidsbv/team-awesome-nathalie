@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_TIME_ENTRY } from "../../GraphQL/Mutations";
 
@@ -20,13 +20,11 @@ export const NewTimeEntry = ({ onClose }: NewTimeEntryProps) => {
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const [addTimeEntry, { data }] = useMutation(ADD_TIME_ENTRY);
-
-  useEffect(() => {
-    if (data) {
+  const [addTimeEntry] = useMutation(ADD_TIME_ENTRY, {
+    onCompleted: (data) => {
       setTimeEntries([...timeEntries, data.createTimeEntry]);
-    }
-  }, [data]);
+    },
+  });
 
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
