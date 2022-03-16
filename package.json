@@ -4,7 +4,7 @@
   "description": "team awesome page",
   "main": "main.js",
   "scripts": {
-    "json-server": "json-server --watch db.json --port 3004",
+    "json-server": "json-server --watch db.json --port 3004 & json-graphql-server db.json --p 3333",
     "dev": "next & npm run json-server",
     "build": "next build",
     "start": "next start",
