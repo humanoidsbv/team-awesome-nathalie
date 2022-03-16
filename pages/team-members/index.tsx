@@ -18,11 +18,9 @@ export const getServerSideProps = async () => {
     query: gql`
       query GetTeamMembers {
         allTeamMembers {
-          emailAddress
           client
           firstName
           id
-          label
           lastName
           role
           startingDate

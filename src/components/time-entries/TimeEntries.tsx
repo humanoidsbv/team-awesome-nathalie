@@ -1,5 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useContext, useEffect, useState } from "react";
+import { useMutation } from "@apollo/client";
 
 import { Modal } from "../modal/Modal";
 import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
@@ -10,8 +11,8 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as TimeEntryTypes from "../../types/TimeEntry.types";
 import * as ClientTypes from "../../types/Client.types";
-import { removeTimeEntry } from "../../services/delete-time-entries";
 import { StoreContext } from "../store-provider/StoreProvider";
+import { DELETE_TIME_ENTRY } from "../../GraphQL/Mutations";
 
 interface TimeEntriesProps {
   timeEntries: TimeEntryTypes.TimeEntry[];
@@ -28,9 +29,13 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     setTimeEntries(props.timeEntries);
   }, []);
 
+  const [removeTimeEntry] = useMutation(DELETE_TIME_ENTRY);
+
   const handleClick = (id?: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
-    removeTimeEntry(id);
+    removeTimeEntry({
+      variables: { id },
+    });
   };
 
   const handleClientFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
