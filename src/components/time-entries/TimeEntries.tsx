@@ -70,6 +70,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
             ))}
           </select>
         </label>
+
         {timeEntries
           .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
           .filter((timeEntry) => (clientFilter !== "" ? timeEntry.client === clientFilter : true))
