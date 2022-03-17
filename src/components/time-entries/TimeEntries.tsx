@@ -11,7 +11,7 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as TimeEntryTypes from "../../types/TimeEntry.types";
 import * as ClientTypes from "../../types/Client.types";
-import { DELETE_TIME_ENTRY } from "../../GraphQL/Mutations";
+import { DELETE_TIME_ENTRY } from "../../graphql/Mutations";
 import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
