@@ -8,7 +8,7 @@ import { StoreProvider } from "../src/components/store-provider/StoreProvider";
 import { TimeEntries } from "../src/components/time-entries/TimeEntries";
 
 import * as Types from "../src/types/TimeEntry.types";
-import { GET_TIME_ENTRIES } from "../src/graphql/Queries";
+import { GET_TIME_ENTRIES } from "../src/GraphQL/Queries";
 
 interface HomepageProps {
   clients: [];
