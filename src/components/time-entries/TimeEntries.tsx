@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useContext, useEffect, useState } from "react";
+import { ChangeEvent, Fragment, useContext, useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 
 import { Modal } from "../modal/Modal";
@@ -11,8 +11,8 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as TimeEntryTypes from "../../types/TimeEntry.types";
 import * as ClientTypes from "../../types/Client.types";
+import { DELETE_TIME_ENTRY } from "../../graphql/Mutations";
 import { StoreContext } from "../store-provider/StoreProvider";
-import { DELETE_TIME_ENTRY } from "../../GraphQL/Mutations";
 
 interface TimeEntriesProps {
   timeEntries: TimeEntryTypes.TimeEntry[];
@@ -38,7 +38,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     });
   };
 
-  const handleClientFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleClientFilter = (event: ChangeEvent<HTMLSelectElement>) => {
     setClientFilter(event.target.value);
   };
 
@@ -81,7 +81,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
                 ? true
                 : new Date(timeEntries[i - 1].startTime).toLocaleDateString() !== currentDate;
             return (
-              <React.Fragment key={id}>
+              <Fragment key={id}>
                 {renderHeader && <TimeEntriesHeader dateString={startTime} />}
 
                 <TimeEntry
@@ -91,7 +91,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
                   startTime={startTime}
                   handleClick={handleClick}
                 />
-              </React.Fragment>
+              </Fragment>
             );
           })}
       </PageContainer>

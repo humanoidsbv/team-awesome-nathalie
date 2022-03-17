@@ -1,5 +1,3 @@
-import React from "react";
-import { gql } from "@apollo/client";
 import client from "../../apollo-client";
 
 import GlobalStyle from "../../styles/global";
@@ -8,6 +6,7 @@ import { Header } from "../../src/components/header/Header";
 import { TeamMembersComponent } from "../../src/components/team-members-component/TeamMembersComponent";
 
 import * as Types from "../../src/types/TeamMembers.types";
+import { GET_TEAM_MEMBERS } from "../../src/graphql/Queries";
 
 interface teamMemberProps {
   teamMembers: Types.TeamMember[];
@@ -15,18 +14,7 @@ interface teamMemberProps {
 
 export const getServerSideProps = async () => {
   const { data } = await client.query({
-    query: gql`
-      query GetTeamMembers {
-        allTeamMembers {
-          client
-          firstName
-          id
-          lastName
-          role
-          startingDate
-        }
-      }
-    `,
+    query: GET_TEAM_MEMBERS,
   });
 
   return {

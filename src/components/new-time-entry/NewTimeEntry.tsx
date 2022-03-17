@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_TIME_ENTRY } from "../../GraphQL/Mutations";
 
+import { ADD_TIME_ENTRY } from "../../graphql/Mutations";
 import * as Styled from "./NewTimeEntry.styled";
 import * as Types from "../../types/TimeEntry.types";
 
