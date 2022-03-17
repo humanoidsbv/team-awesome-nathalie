@@ -1,5 +1,5 @@
 {
-  "time-entries": [
+  "timeEntries": [
     {
       "client": "Heineken",
       "endTime": "2020-03-10T16:30:00.000Z",
@@ -23,20 +23,20 @@
     },
     {
       "activity": "bla",
-      "client": "bla",
+      "client": "Nationale Nederlanden",
       "endTime": "2022-02-28T21:59:00.000Z",
       "startTime": "2022-02-28T20:59:00.000Z",
       "id": 6
     },
     {
-      "activity": "teset1",
-      "client": "test1",
+      "activity": "test1",
+      "client": "Coolblue",
       "endTime": "2022-02-26T22:12:00.000Z",
       "startTime": "2022-02-26T21:11:00.000Z",
       "id": 7
     }
   ],
-  "team-members": [
+  "teamMembers": [
     {
       "emailAddress": "amijs.breunesse@humanoids.nl",
       "client": "Koppert",

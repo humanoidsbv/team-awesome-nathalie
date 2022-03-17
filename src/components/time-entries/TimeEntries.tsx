@@ -1,5 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useContext, useEffect, useState } from "react";
+import { ChangeEvent, Fragment, useContext, useEffect, useState } from "react";
+import { useMutation } from "@apollo/client";
 
 import { Modal } from "../modal/Modal";
 import { NewTimeEntry } from "../new-time-entry/NewTimeEntry";
@@ -10,7 +11,7 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 
 import * as TimeEntryTypes from "../../types/TimeEntry.types";
 import * as ClientTypes from "../../types/Client.types";
-import { removeTimeEntry } from "../../services/delete-time-entries";
+import { DELETE_TIME_ENTRY } from "../../graphql/Mutations";
 import { StoreContext } from "../store-provider/StoreProvider";
 
 interface TimeEntriesProps {
@@ -28,12 +29,16 @@ export const TimeEntries = (props: TimeEntriesProps) => {
     setTimeEntries(props.timeEntries);
   }, []);
 
+  const [removeTimeEntry] = useMutation(DELETE_TIME_ENTRY);
+
   const handleClick = (id?: number) => {
     setTimeEntries(timeEntries.filter((timeEntry) => timeEntry.id !== id));
-    removeTimeEntry(id);
+    removeTimeEntry({
+      variables: { id },
+    });
   };
 
-  const handleClientFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleClientFilter = (event: ChangeEvent<HTMLSelectElement>) => {
     setClientFilter(event.target.value);
   };
 
@@ -65,6 +70,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
             ))}
           </select>
         </label>
+
         {timeEntries
           .sort((a, b) => new Date(b.startTime).getTime() - new Date(a.startTime).getTime())
           .filter((timeEntry) => (clientFilter !== "" ? timeEntry.client === clientFilter : true))
@@ -75,7 +81,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
                 ? true
                 : new Date(timeEntries[i - 1].startTime).toLocaleDateString() !== currentDate;
             return (
-              <React.Fragment key={id}>
+              <Fragment key={id}>
                 {renderHeader && <TimeEntriesHeader dateString={startTime} />}
 
                 <TimeEntry
@@ -85,7 +91,7 @@ export const TimeEntries = (props: TimeEntriesProps) => {
                   startTime={startTime}
                   handleClick={handleClick}
                 />
-              </React.Fragment>
+              </Fragment>
             );
           })}
       </PageContainer>

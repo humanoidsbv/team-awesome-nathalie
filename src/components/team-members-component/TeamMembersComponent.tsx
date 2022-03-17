@@ -13,19 +13,19 @@ interface TeamMembersComponentProps {
   teamMembers: Types.TeamMember[];
 }
 
-type SortTeamMembersValues = "client" | "firstName" | "lastName" | "role" | "startingDate";
+type SortTeamMembersValues = "client" | "firstName" | "lastName" | "role" | "startingDate" | "";
 
 export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
   const [teamMembers, setTeamMembers] = useState<Types.TeamMember[]>(props.teamMembers);
   const [isModalActive, setIsModalActive] = useState(false);
-  const [sortTeamMember, setSortTeamMember] = useState<SortTeamMembersValues>("lastName");
+  const [sortTeamMember, setSortTeamMember] = useState<SortTeamMembersValues>("");
 
   const teamMemberProperty = [
-    { value: "client", label: "Client" },
-    { value: "firstName", label: "First Name" },
-    { value: "lastName", label: "Last Name" },
-    { value: "role", label: "Role" },
-    { value: "startingDate", label: "Starting Date" },
+    { value: "client", label: "Client", id: 1 },
+    { value: "firstName", label: "First Name", id: 2 },
+    { value: "lastName", label: "Last Name", id: 3 },
+    { value: "role", label: "Role", id: 4 },
+    { value: "startingDate", label: "Starting Date", id: 5 },
   ];
 
   const createTeamMembers = (newTeamMember: Types.TeamMember) => {
@@ -53,21 +53,27 @@ export const TeamMembersComponent = (props: TeamMembersComponentProps) => {
           <select name="team-members" id="sort-team-members" onChange={handleSortTeamMember}>
             <option value="">Filter by...</option>
             {teamMemberProperty.map((sort) => (
-              <option value={sort.value}>{sort.label}</option>
+              <option value={sort.value} key={sort.id}>
+                {sort.label}
+              </option>
             ))}
           </select>
         </label>
 
-        {teamMembers
-          .sort((a, b) => a[sortTeamMember].localeCompare(b[sortTeamMember]))
-          .map(({ client, firstName, lastName, role, startingDate }: Types.TeamMember) => (
-            <TeamMember
-              client={client}
-              firstName={firstName}
-              lastName={lastName}
-              role={role}
-              startingDate={startingDate}
-            />
+        {[...teamMembers]
+          .sort((a, b) =>
+            sortTeamMember !== "" ? a[sortTeamMember].localeCompare(b[sortTeamMember]) : 0,
+          )
+          .map(({ client, firstName, id, lastName, role, startingDate }: Types.TeamMember) => (
+            <React.Fragment key={id}>
+              <TeamMember
+                client={client}
+                firstName={firstName}
+                lastName={lastName}
+                role={role}
+                startingDate={startingDate}
+              />
+            </React.Fragment>
           ))}
       </PageContainer>
     </>
