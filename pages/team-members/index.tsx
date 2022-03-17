@@ -6,7 +6,6 @@ import { Header } from "../../src/components/header/Header";
 import { TeamMembersComponent } from "../../src/components/team-members-component/TeamMembersComponent";
 
 import * as Types from "../../src/types/TeamMembers.types";
-import { GET_TEAM_MEMBERS } from "../../src/graphql/Queries";
 
 interface teamMemberProps {
   teamMembers: Types.TeamMember[];

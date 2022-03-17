@@ -3,7 +3,6 @@ import { useMutation } from "@apollo/client";
 
 import * as Styled from "./NewTimeEntry.styled";
 import * as Types from "../../types/TimeEntry.types";
-import { ADD_TIME_ENTRY } from "../../graphql/Mutations";
 
 import { Button } from "../button/Button";
 import { StoreContext } from "../store-provider/StoreProvider";
