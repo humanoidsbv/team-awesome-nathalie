@@ -8,7 +8,10 @@ export const NewTimeEntry = styled.form`
   justify-content: flex-start;
 
   label {
+    display: flex;
+    flex-direction: column;
     font-size: 14px;
+    gap: 10px;
     padding: 20px 0 10px;
   }
 
@@ -23,10 +26,6 @@ export const NewTimeEntry = styled.form`
 
   p {
     font-size: 14px;
-  }
-
-  span {
-    color: red;
   }
 `;
 

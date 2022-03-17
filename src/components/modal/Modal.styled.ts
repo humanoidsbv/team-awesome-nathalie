@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const ModalContainer = styled.div`
   background-color: #fff;
   color: ${({ theme }) => theme.greyColor700};
+  cursor: pointer;
   font-family: ${({ theme }) => theme.fontPrimary};
   font-weight: 600;
   height: 100vh;
-  cursor: pointer;
+  overflow: hidden;
   padding: 30px 20px;
   position: absolute;
   top: 0;

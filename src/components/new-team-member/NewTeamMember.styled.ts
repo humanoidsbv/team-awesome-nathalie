@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const NewTeamMember = styled.div`
+  background-color: #fff;
   font-family: ${({ theme }) => theme.fontPrimary};
   margin-top: 40px;
 
